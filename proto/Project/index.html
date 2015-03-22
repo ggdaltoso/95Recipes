@@ -1,44 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="FramerApp">
 	<head>
 		<meta charset="utf-8">
-
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta name="format-detection" content="telephone=no">
-		<meta name="viewport" content="width=640,initial-scale=0.5,user-scalable=no">
-
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="icon/apple-touch-icon-144x144-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="icon/apple-touch-icon-114x114-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="icon/apple-touch-icon-72x72-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" href="icon/apple-touch-icon-precomposed.png">
-
-		<style type="text/css" media="screen">
-
-		* {
-			margin:0;
-			padding:0;
-			border:none;
-			-webkit-user-select:none;
-		}
-
-		body {
-			background: black url('images/background.png')
-				repeat scroll top left;
-			font: 28px/1em "Helvetica";
-			color: #FFF;
-			-webkit-tap-highlight-color: rgba(0,0,0,0)
-		}
-
-		a {
-			color: #bfbfbf;
-		}
-
-		</style>
-
+		
+		<meta name="viewport" content="width=300">
+		
+		<link rel="stylesheet" href="../../bower_components/angular-material/angular-material.min.css">
+        <link rel="stylesheet" href="../../bower_components/angular-material/">
+        <link rel="stylesheet" href="../../bower_components/roboto-fontface/roboto-fontface.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic" >
+        <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="app.css">
 	</head>
-	<body>
-		<script src="framer/framer.js"></script>
-		<script src="app.js"></script>
+	<body ng-controller="FramerCtrl">
+  
+    <md-grid-list
+        md-cols="3" md-row-height="1:1"
+        md-gutter="8px" >
+    <md-grid-tile class="blue"
+        md-rowspan="2" md-colspan="2">
+      <md-grid-tile-footer>
+            <i class="fa fa-lg fa-cutlery pull-right"></i>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="green">
+      <md-grid-tile-footer>
+            <i class="fa fa-lg fa-cutlery pull-right"></i>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="yellow">
+      <md-grid-tile-footer>
+        <i class="fa fa-lg fa-glass pull-right"></i>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="purple"
+        md-rowspan="2" md-colspan="3">
+      <md-grid-tile-footer>
+        <i class="fa fa-lg fa-glass pull-right"></i>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="red"
+        md-rowspan="1" md-colspan="1">
+      <md-grid-tile-footer>
+        <i class="fa fa-lg fa-cutlery pull-right"></i>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="green"
+        md-rowspan="2" md-colspan="2" >
+      <md-grid-tile-footer>
+        <i class="fa fa-lg fa-cutlery pull-right"></i>
+      </md-grid-tile-footer>
+    </md-grid-tile>    
+    <md-grid-tile class="red"
+        md-rowspan="1" md-colspan="1">
+      <md-grid-tile-footer>
+        <i class="fa fa-lg fa-cutlery pull-right"></i>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+	
+	<script src="../../bower_components/angular/angular.min.js"></script>
+	<script src="../../bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="../../bower_components/angular-aria/angular-aria.min.js"></script>   
+    <script src="../../bower_components/angular-material/angular-material.min.js"></script>
+	
+	<script src="framer/framer.js"></script>
+	<script src="app.js"></script>
 	</body>
 </html>
