@@ -2,7 +2,6 @@ body{
   background: #424242;
   font-family: 'Roboto', sans-serif;
   font-size:14px;
-  height:100%;
   margin: 0px;
   padding: 5px;
 }
@@ -19,8 +18,7 @@ body{
   left:0;
   z-index: 1;
     
-  display: block !important;
-        
+  display: block !important;        
 }
 
 .pan{
@@ -51,10 +49,10 @@ body{
   background: #ff80ab; }
 
 md-grid-tile {
-  -webkit-transition: all 500ms ease-out 100ms;
-    -moz-transition: all 500ms ease-out 100ms;
-    -o-transition: all 500ms ease-out 100ms;
-    transition: all 500ms ease-out 100ms;
+  -webkit-transition: all 500ms ease-out;
+    -moz-transition: all 500ms ease-out;
+    -o-transition: all 500ms ease-out;
+    transition: all 500ms ease-out;
 }
 
 md-grid-tile-footer figcaption {
@@ -64,4 +62,3 @@ md-grid-tile-footer figcaption {
 md-grid-tile-footer figcaption i {    
   text-align: right; 
 }
-

@@ -273,7 +273,7 @@ exports.Animation = (function(_super) {
 })(EventEmitter);
 
 
-},{"./Animators/BezierCurveAnimator":4,"./Animators/LinearAnimator":5,"./Animators/SpringDHOAnimator":6,"./Animators/SpringRK4Animator":7,"./Config":11,"./Defaults":13,"./EventEmitter":14,"./Frame":18,"./Underscore":28,"./Utils":29}],2:[function(require,module,exports){
+},{"./Animators/BezierCurveAnimator":4,"./Animators/LinearAnimator":5,"./Animators/SpringDHOAnimator":6,"./Animators/SpringRK4Animator":7,"./Config":11,"./Defaults":13,"./EventEmitter":14,"./Frame":19,"./Underscore":29,"./Utils":30}],2:[function(require,module,exports){
 var AnimationLoop, AnimationLoopIndexKey, Config, EventEmitter, Utils, _;
 
 _ = require("./Underscore")._;
@@ -351,7 +351,7 @@ AnimationLoop = {
 exports.AnimationLoop = AnimationLoop;
 
 
-},{"./Config":11,"./EventEmitter":14,"./Underscore":28,"./Utils":29}],3:[function(require,module,exports){
+},{"./Config":11,"./EventEmitter":14,"./Underscore":29,"./Utils":30}],3:[function(require,module,exports){
 var AnimationLoop, Config, EventEmitter, Utils,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -401,7 +401,7 @@ exports.Animator = (function(_super) {
 })(EventEmitter);
 
 
-},{"./AnimationLoop":2,"./Config":11,"./EventEmitter":14,"./Utils":29}],4:[function(require,module,exports){
+},{"./AnimationLoop":2,"./Config":11,"./EventEmitter":14,"./Utils":30}],4:[function(require,module,exports){
 var Animator, BezierCurveDefaults, UnitBezier, Utils, _, _ref,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -541,7 +541,7 @@ UnitBezier = (function() {
 })();
 
 
-},{"../Animator":3,"../Underscore":28,"../Utils":29}],5:[function(require,module,exports){
+},{"../Animator":3,"../Underscore":29,"../Utils":30}],5:[function(require,module,exports){
 var Animator, Utils, _ref,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -582,7 +582,7 @@ exports.LinearAnimator = (function(_super) {
 })(Animator);
 
 
-},{"../Animator":3,"../Utils":29}],6:[function(require,module,exports){
+},{"../Animator":3,"../Utils":30}],6:[function(require,module,exports){
 var Animator, Utils, _ref,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __hasProp = {}.hasOwnProperty,
@@ -640,7 +640,7 @@ exports.SpringDHOAnimator = (function(_super) {
 })(Animator);
 
 
-},{"../Animator":3,"../Utils":29}],7:[function(require,module,exports){
+},{"../Animator":3,"../Utils":30}],7:[function(require,module,exports){
 var Animator, Utils, springAccelerationForState, springEvaluateState, springEvaluateStateWithDerivative, springIntegrateState, _ref,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __hasProp = {}.hasOwnProperty,
@@ -744,7 +744,7 @@ springIntegrateState = function(state, speed) {
 };
 
 
-},{"../Animator":3,"../Utils":29}],8:[function(require,module,exports){
+},{"../Animator":3,"../Utils":30}],8:[function(require,module,exports){
 var Layer,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __hasProp = {}.hasOwnProperty,
@@ -782,7 +782,7 @@ exports.BackgroundLayer = (function(_super) {
 })(Layer);
 
 
-},{"./Layer":21}],9:[function(require,module,exports){
+},{"./Layer":22}],9:[function(require,module,exports){
 var CounterKey, DefinedPropertiesKey, DefinedPropertiesValuesKey, EventEmitter, Utils, _,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __hasProp = {}.hasOwnProperty,
@@ -923,7 +923,7 @@ exports.BaseClass = (function(_super) {
 })(EventEmitter);
 
 
-},{"./EventEmitter":14,"./Underscore":28,"./Utils":29}],10:[function(require,module,exports){
+},{"./EventEmitter":14,"./Underscore":29,"./Utils":30}],10:[function(require,module,exports){
 var CompatImageView, CompatLayer, CompatScrollView, CompatView, Layer, compatProperty, compatWarning, _ref,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -1033,7 +1033,7 @@ window.ScrollView = CompatScrollView;
 window.utils = window.Utils;
 
 
-},{"./Layer":21}],11:[function(require,module,exports){
+},{"./Layer":22}],11:[function(require,module,exports){
 var Utils;
 
 Utils = require("./Utils");
@@ -1060,7 +1060,7 @@ exports.Config = {
 };
 
 
-},{"./Utils":29}],12:[function(require,module,exports){
+},{"./Utils":30}],12:[function(require,module,exports){
 var EventKeys, Utils, createDebugLayer, errorWarning, hideDebug, showDebug, toggleDebug, _debugLayers, _errorWarningLayer;
 
 Utils = require("./Utils");
@@ -1070,7 +1070,7 @@ _debugLayers = null;
 createDebugLayer = function(layer) {
   var overLayer;
   overLayer = new Layer({
-    frame: layer.screenFrame(),
+    frame: layer.screenFrame,
     backgroundColor: "rgba(50,150,200,.35)"
   });
   overLayer.style = {
@@ -1163,7 +1163,7 @@ errorWarning = function() {
 window.onerror = errorWarning;
 
 
-},{"./Utils":29}],13:[function(require,module,exports){
+},{"./Utils":30}],13:[function(require,module,exports){
 var Originals, Utils, _;
 
 _ = require("./Underscore")._;
@@ -1205,7 +1205,7 @@ exports.Defaults = {
 };
 
 
-},{"./Underscore":28,"./Utils":29}],14:[function(require,module,exports){
+},{"./Underscore":29,"./Utils":30}],14:[function(require,module,exports){
 var EventEmitterEventsKey, _,
   __slice = [].slice;
 
@@ -1294,7 +1294,7 @@ exports.EventEmitter = (function() {
 })();
 
 
-},{"./Underscore":28}],15:[function(require,module,exports){
+},{"./Underscore":29}],15:[function(require,module,exports){
 var Events, Utils, _;
 
 _ = require("./Underscore")._;
@@ -1342,11 +1342,13 @@ Events.touchEvent = function(event) {
 exports.Events = Events;
 
 
-},{"./Underscore":28,"./Utils":29}],16:[function(require,module,exports){
+},{"./Underscore":29,"./Utils":30}],16:[function(require,module,exports){
 exports.MobileScrollFix = require("./MobileScrollFix");
 
+exports.OmitNew = require("./OmitNew");
 
-},{"./MobileScrollFix":17}],17:[function(require,module,exports){
+
+},{"./MobileScrollFix":17,"./OmitNew":18}],17:[function(require,module,exports){
 var Utils,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __hasProp = {}.hasOwnProperty,
@@ -1407,7 +1409,34 @@ exports.enable = function() {
 };
 
 
-},{"../Utils":29}],18:[function(require,module,exports){
+},{"../Utils":30}],18:[function(require,module,exports){
+var __slice = [].slice;
+
+exports.enable = function(module) {
+  var ClassWrapper;
+  if (module == null) {
+    module = window;
+  }
+  ClassWrapper = function(Klass) {
+    return function() {
+      var args;
+      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+      return this.prototype = (function(func, args, ctor) {
+        ctor.prototype = func.prototype;
+        var child = new ctor, result = func.apply(child, args);
+        return Object(result) === result ? result : child;
+      })(Klass, args, function(){});
+    };
+  };
+  module.Frame = ClassWrapper(Framer.Frame);
+  module.Layer = ClassWrapper(Framer.Layer);
+  module.BackgroundLayer = ClassWrapper(Framer.BackgroundLayer);
+  module.VideoLayer = ClassWrapper(Framer.VideoLayer);
+  return module.Animation = ClassWrapper(Framer.Animation);
+};
+
+
+},{}],19:[function(require,module,exports){
 var BaseClass,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -1485,7 +1514,7 @@ exports.Frame = (function(_super) {
 })(BaseClass);
 
 
-},{"./BaseClass":9}],19:[function(require,module,exports){
+},{"./BaseClass":9}],20:[function(require,module,exports){
 var Defaults, Framer, _;
 
 _ = require("./Underscore")._;
@@ -1501,6 +1530,8 @@ Framer.Frame = (require("./Frame")).Frame;
 Framer.Layer = (require("./Layer")).Layer;
 
 Framer.BackgroundLayer = (require("./BackgroundLayer")).BackgroundLayer;
+
+Framer.VideoLayer = (require("./VideoLayer")).VideoLayer;
 
 Framer.Events = (require("./Events")).Events;
 
@@ -1557,7 +1588,7 @@ Framer.resetDefaults = Defaults.reset;
 Framer.resetDefaults();
 
 
-},{"./Animation":1,"./AnimationLoop":2,"./Animators/BezierCurveAnimator":4,"./Animators/LinearAnimator":5,"./Animators/SpringDHOAnimator":6,"./Animators/SpringRK4Animator":7,"./BackgroundLayer":8,"./BaseClass":9,"./Compat":10,"./Config":11,"./Debug":12,"./Defaults":13,"./EventEmitter":14,"./Events":15,"./Extras/Extras":16,"./Frame":18,"./Importer":20,"./Layer":21,"./LayerStyle":24,"./Print":25,"./Screen":26,"./Session":27,"./Underscore":28,"./Utils":29}],20:[function(require,module,exports){
+},{"./Animation":1,"./AnimationLoop":2,"./Animators/BezierCurveAnimator":4,"./Animators/LinearAnimator":5,"./Animators/SpringDHOAnimator":6,"./Animators/SpringRK4Animator":7,"./BackgroundLayer":8,"./BaseClass":9,"./Compat":10,"./Config":11,"./Debug":12,"./Defaults":13,"./EventEmitter":14,"./Events":15,"./Extras/Extras":16,"./Frame":19,"./Importer":21,"./Layer":22,"./LayerStyle":25,"./Print":26,"./Screen":27,"./Session":28,"./Underscore":29,"./Utils":30,"./VideoLayer":31}],21:[function(require,module,exports){
 var ChromeAlert, Utils, _;
 
 _ = require("./Underscore")._;
@@ -1684,8 +1715,8 @@ exports.Importer.load = function(path) {
 };
 
 
-},{"./Underscore":28,"./Utils":29}],21:[function(require,module,exports){
-var Animation, BaseClass, Config, Defaults, EventEmitter, Frame, LayerDraggable, LayerStates, LayerStyle, Session, Utils, frameProperty, layerProperty, layerStyleProperty, _,
+},{"./Underscore":29,"./Utils":30}],22:[function(require,module,exports){
+var Animation, BaseClass, Config, Defaults, EventEmitter, Frame, LayerDraggable, LayerStates, LayerStyle, Session, Utils, layerProperty, layerStyleProperty, _,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -1754,26 +1785,11 @@ layerStyleProperty = function(cssProperty) {
   };
 };
 
-frameProperty = function(name) {
-  return {
-    exportable: false,
-    get: function() {
-      return this.frame[name];
-    },
-    set: function(value) {
-      var frame;
-      frame = this.frame;
-      frame[name] = value;
-      return this.frame = frame;
-    }
-  };
-};
-
 exports.Layer = (function(_super) {
   __extends(Layer, _super);
 
   function Layer(options) {
-    var frame;
+    var k, _i, _len, _ref;
     if (options == null) {
       options = {};
     }
@@ -1784,15 +1800,19 @@ exports.Layer = (function(_super) {
     this._prefer2d = false;
     this._createElement();
     this._setDefaultCSS();
+    if (options.hasOwnProperty("frame")) {
+      options = _.extend(options, options.frame);
+    }
     options = Defaults.getDefaults("Layer", options);
     Layer.__super__.constructor.call(this, options);
     this._element.id = "FramerLayer-" + this.id;
-    if (options.hasOwnProperty("frame")) {
-      frame = new Frame(options.frame);
-    } else {
-      frame = new Frame(options);
+    _ref = ["minX", "midX", "maxX", "minY", "midY", "maxY"];
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      k = _ref[_i];
+      if (options.hasOwnProperty(k)) {
+        this[k] = options[k];
+      }
     }
-    this.frame = frame;
     if (!options.superLayer) {
       this.bringToFront();
       if (!options.shadow) {
@@ -1921,7 +1941,7 @@ exports.Layer = (function(_super) {
 
   Layer.define("frame", {
     get: function() {
-      return new Frame(this);
+      return _.pick(this, ["x", "y", "width", "height"]);
     },
     set: function(frame) {
       var k, _i, _len, _ref, _results;
@@ -1932,63 +1952,125 @@ exports.Layer = (function(_super) {
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         k = _ref[_i];
-        _results.push(this[k] = frame[k]);
+        if (frame.hasOwnProperty(k)) {
+          _results.push(this[k] = frame[k]);
+        } else {
+          _results.push(void 0);
+        }
       }
       return _results;
     }
   });
 
-  Layer.define("minX", frameProperty("minX"));
+  Layer.define("minX", {
+    get: function() {
+      return this.x;
+    },
+    set: function(value) {
+      return this.x = value;
+    }
+  });
 
-  Layer.define("midX", frameProperty("midX"));
+  Layer.define("midX", {
+    get: function() {
+      return Utils.frameGetMidX(this);
+    },
+    set: function(value) {
+      return Utils.frameSetMidX(this, value);
+    }
+  });
 
-  Layer.define("maxX", frameProperty("maxX"));
+  Layer.define("maxX", {
+    get: function() {
+      return Utils.frameGetMaxX(this);
+    },
+    set: function(value) {
+      return Utils.frameSetMaxX(this, value);
+    }
+  });
 
-  Layer.define("minY", frameProperty("minY"));
+  Layer.define("minY", {
+    get: function() {
+      return this.y;
+    },
+    set: function(value) {
+      return this.y = value;
+    }
+  });
 
-  Layer.define("midY", frameProperty("midY"));
+  Layer.define("midY", {
+    get: function() {
+      return Utils.frameGetMidY(this);
+    },
+    set: function(value) {
+      return Utils.frameSetMidY(this, value);
+    }
+  });
 
-  Layer.define("maxY", frameProperty("maxY"));
+  Layer.define("maxY", {
+    get: function() {
+      return Utils.frameGetMaxY(this);
+    },
+    set: function(value) {
+      return Utils.frameSetMaxY(this, value);
+    }
+  });
 
   Layer.prototype.convertPoint = function(point) {
     return Utils.convertPoint(point, null, this);
   };
 
-  Layer.prototype.screenFrame = function() {
-    return Utils.convertPoint(this.frame, this, null);
-  };
+  Layer.define("screenFrame", {
+    get: function() {
+      return Utils.convertPoint(this.frame, this, null);
+    },
+    set: function(frame) {
+      if (!this.superLayer) {
+        return this.frame = frame;
+      } else {
+        return this.frame = Utils.convertPoint(frame, null, this.superLayer);
+      }
+    }
+  });
 
   Layer.prototype.contentFrame = function() {
-    return Utils.frameMerge(this.subLayers.map(function(layer) {
-      return layer.frame.properties;
-    }));
+    return Utils.frameMerge(_.pluck(this.subLayers, "frame"));
   };
 
   Layer.prototype.centerFrame = function() {
     var frame;
     if (this.superLayer) {
       frame = this.frame;
-      frame.midX = parseInt(this.superLayer.width / 2.0);
-      frame.midY = parseInt(this.superLayer.height / 2.0);
+      Utils.frameSetMidX(frame, parseInt(this.superLayer.width / 2.0));
+      Utils.frameSetMidY(frame, parseInt(this.superLayer.height / 2.0));
       return frame;
     } else {
       frame = this.frame;
-      frame.midX = parseInt(window.innerWidth / 2.0);
-      frame.midY = parseInt(window.innerHeight / 2.0);
+      Utils.frameSetMidX(frame, parseInt(window.innerWidth / 2.0));
+      Utils.frameSetMidY(frame, parseInt(window.innerHeight / 2.0));
       return frame;
     }
   };
 
   Layer.prototype.center = function() {
-    return this.frame = this.centerFrame();
+    this.frame = this.centerFrame();
+    return this;
   };
 
-  Layer.prototype.centerX = function() {
-    return this.x = this.centerFrame().x;
+  Layer.prototype.centerX = function(offset) {
+    if (offset == null) {
+      offset = 0;
+    }
+    this.x = this.centerFrame().x + offset;
+    return this;
   };
 
-  Layer.prototype.centerY = function() {
-    return this.y = this.centerFrame().y;
+  Layer.prototype.centerY = function(offset) {
+    if (offset == null) {
+      offset = 0;
+    }
+    this.y = this.centerFrame().y + offset;
+    return this;
   };
 
   Layer.prototype.pixelAlign = function() {
@@ -2411,7 +2493,7 @@ exports.Layer.Layers = function() {
 };
 
 
-},{"./Animation":1,"./BaseClass":9,"./Config":11,"./Defaults":13,"./EventEmitter":14,"./Frame":18,"./LayerDraggable":22,"./LayerStates":23,"./LayerStyle":24,"./Session":27,"./Underscore":28,"./Utils":29}],22:[function(require,module,exports){
+},{"./Animation":1,"./BaseClass":9,"./Config":11,"./Defaults":13,"./EventEmitter":14,"./Frame":19,"./LayerDraggable":23,"./LayerStates":24,"./LayerStyle":25,"./Session":28,"./Underscore":29,"./Utils":30}],23:[function(require,module,exports){
 var EventEmitter, Events, Utils, _,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __hasProp = {}.hasOwnProperty,
@@ -2576,11 +2658,12 @@ exports.LayerDraggable = (function(_super) {
 })(EventEmitter);
 
 
-},{"./EventEmitter":14,"./Events":15,"./Underscore":28,"./Utils":29}],23:[function(require,module,exports){
+},{"./EventEmitter":14,"./Events":15,"./Underscore":29,"./Utils":30}],24:[function(require,module,exports){
 var BaseClass, Defaults, Events, LayerStatesIgnoredKeys, _,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-  __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+  __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
+  __slice = [].slice;
 
 _ = require("./Underscore")._;
 
@@ -2737,12 +2820,19 @@ exports.LayerStates = (function(_super) {
     return this["switch"](_.last(this._previousStates), animationOptions);
   };
 
+  LayerStates.prototype.emit = function() {
+    var args, _ref;
+    args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+    LayerStates.__super__.emit.apply(this, arguments);
+    return (_ref = this.layer).emit.apply(_ref, args);
+  };
+
   return LayerStates;
 
 })(BaseClass);
 
 
-},{"./BaseClass":9,"./Defaults":13,"./Events":15,"./Underscore":28}],24:[function(require,module,exports){
+},{"./BaseClass":9,"./Defaults":13,"./Events":15,"./Underscore":29}],25:[function(require,module,exports){
 var filterFormat, _WebkitProperties;
 
 filterFormat = function(value, unit) {
@@ -2867,7 +2957,7 @@ exports.LayerStyle = {
 };
 
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 var Session, Utils,
   __slice = [].slice;
 
@@ -2913,7 +3003,7 @@ exports.print = function() {
 };
 
 
-},{"./Session":27,"./Utils":29}],26:[function(require,module,exports){
+},{"./Session":28,"./Utils":30}],27:[function(require,module,exports){
 var BaseClass, ScreenClass,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -2957,11 +3047,11 @@ ScreenClass = (function(_super) {
 exports.Screen = new ScreenClass;
 
 
-},{"./BaseClass":9}],27:[function(require,module,exports){
+},{"./BaseClass":9}],28:[function(require,module,exports){
 exports.Session = {};
 
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 var _;
 
 _ = require("lodash");
@@ -2977,7 +3067,7 @@ _.isBool = function(v) {
 exports._ = _;
 
 
-},{"lodash":30,"underscore.string":31}],29:[function(require,module,exports){
+},{"lodash":32,"underscore.string":33}],30:[function(require,module,exports){
 var Screen, Session, Utils, _, __domComplete, __domReady,
   __slice = [].slice,
   _this = this;
@@ -3605,25 +3695,23 @@ Utils.frameMerge = function() {
 };
 
 Utils.convertPoint = function(input, layerA, layerB) {
-  var k, layer, point, superLayersA, superLayersB, _i, _j, _k, _len, _len1, _len2, _ref;
-  point = {};
-  _ref = ["x", "y", "width", "height"];
-  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-    k = _ref[_i];
-    point[k] = input[k];
-  }
+  var layer, point, superLayersA, superLayersB, _i, _j, _len, _len1;
+  point = _.defaults(input, {
+    x: 0,
+    y: 0
+  });
   superLayersA = (layerA != null ? layerA.superLayers() : void 0) || [];
   superLayersB = (layerB != null ? layerB.superLayers() : void 0) || [];
   if (layerB) {
     superLayersB.push(layerB);
   }
-  for (_j = 0, _len1 = superLayersA.length; _j < _len1; _j++) {
-    layer = superLayersA[_j];
+  for (_i = 0, _len = superLayersA.length; _i < _len; _i++) {
+    layer = superLayersA[_i];
     point.x += layer.x - layer.scrollFrame.x;
     point.y += layer.y - layer.scrollFrame.y;
   }
-  for (_k = 0, _len2 = superLayersB.length; _k < _len2; _k++) {
-    layer = superLayersB[_k];
+  for (_j = 0, _len1 = superLayersB.length; _j < _len1; _j++) {
+    layer = superLayersB[_j];
     point.x -= layer.x + layer.scrollFrame.x;
     point.y -= layer.y + layer.scrollFrame.y;
   }
@@ -3633,7 +3721,45 @@ Utils.convertPoint = function(input, layerA, layerB) {
 _.extend(exports, Utils);
 
 
-},{"./Screen":26,"./Session":27,"./Underscore":28}],30:[function(require,module,exports){
+},{"./Screen":27,"./Session":28,"./Underscore":29}],31:[function(require,module,exports){
+var Layer,
+  __hasProp = {}.hasOwnProperty,
+  __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+Layer = require("./Layer").Layer;
+
+exports.VideoLayer = (function(_super) {
+  __extends(VideoLayer, _super);
+
+  function VideoLayer(options) {
+    if (options == null) {
+      options = {};
+    }
+    VideoLayer.__super__.constructor.call(this, options);
+    this.player = document.createElement("video");
+    this.player.style.width = "100%";
+    this.player.style.height = "100%";
+    this.player.on = this.player.addEventListener;
+    this.player.off = this.player.removeEventListener;
+    this.video = options.video;
+    this._element.appendChild(this.player);
+  }
+
+  VideoLayer.define("video", {
+    get: function() {
+      return this.player.src;
+    },
+    set: function(video) {
+      return this.player.src = video;
+    }
+  });
+
+  return VideoLayer;
+
+})(Layer);
+
+
+},{"./Layer":22}],32:[function(require,module,exports){
 var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};/**
  * @license
  * Lo-Dash 2.4.1 (Custom Build) <http://lodash.com/>
@@ -10420,7 +10546,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   }
 }.call(this));
 
-},{}],31:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 //  Underscore.string
 //  (c) 2010 Esa-Matti Suuronen <esa-matti aet suuronen dot org>
 //  Underscore.string is freely distributable under the terms of the MIT license.
@@ -11095,7 +11221,7 @@ var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? 
   root._.string = root._.str = _s;
 }(this, String);
 
-},{}]},{},[19])
+},{}]},{},[20])
 
 ;
 //# sourceMappingURL=framer.js.map
