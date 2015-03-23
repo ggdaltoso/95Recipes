@@ -8,6 +8,7 @@ var protoWidth = 320,
     protoHeight = 480;
 
 // Colors
+var black = "#000000";
 var gray = "#F5F5F5";
 var green = "#99CC10";
 var darkGreen = "#669900";
@@ -39,21 +40,13 @@ var containerSpacer = new Layer({
     backgroundColor: transparent
 });
 
+containerSpacer.style["outline"] = "1px solid red";
+
+containerSpacer.centerFrame();
+
 Container.draggable.enabled = true;
 Container.draggable.speedY = 0.5;
 Container.draggable.speedX = 0;
-
-Container.on(Events.DragMove, function(){
-    console.log(Container.y);
-    Container.on(Events.Click, function(){});
-});
-Container.on(Events.DragEnd, function(){
-    if(Container.y > 0){
-        this.animate({
-            properties: { y: 0 }
-        });   
-    }
-});
 
 Container.superLayer = containerSpacer;
 containerSpacer.scrollVertical = false;
@@ -143,11 +136,13 @@ function animateImage(image) {
 		layer: image,
 		properties: {
 			x: 0,
-			y: 0,
+			y: containerSpacer.y + (Container.y * -1),
 			width: protoWidth,
 			height: protoHeight
 		}
 	});
+    
+    console.log(maximize.options.properties);
 
 	var minimize = maximize.reverse();
 	
@@ -164,31 +159,41 @@ function animateImage(image) {
 }
 
 // Configuração dos eventos
+function addClickAnimation(){
+    ImageA.on(Events.Click, function() {
+	   animateImage(this);
+    });
+    ImageB.on(Events.Click, function() {
+        animateImage(this);
+    });
+    ImageC.on(Events.Click, function() {
+        animateImage(this);
+    });
+    ImageD.on(Events.Click, function() {
+        animateImage(this);
+    });
+    ImageE.on(Events.Click, function() {
+        animateImage(this);
+    });
+    ImageF.on(Events.Click, function() {
+        animateImage(this);
+    });
+    ImageG.on(Events.Click, function() {
+        animateImage(this);        
+    });   
+};
 
-ImageA.on(Events.Click, function() {
-	animateImage(this);
+addClickAnimation();
+
+Container.on(Events.DragEnd, function(){
+    if(Container.y > 0 ){
+        this.animate({
+            properties: { y: 0 }
+        });   
+    }
 });
 
-ImageB.on(Events.Click, function() {
-	animateImage(this);
-});
 
-ImageC.on(Events.Click, function() {
-	animateImage(this);
-});
-
-ImageD.on(Events.Click, function() {
-	animateImage(this);
-});
-ImageE.on(Events.Click, function() {
-	animateImage(this);
-});
-ImageF.on(Events.Click, function() {
-	animateImage(this);
-});
-ImageG.on(Events.Click, function() {
-	animateImage(this);
-});
 Container.addSubLayer(ImageA);
 Container.addSubLayer(ImageB);
 Container.addSubLayer(ImageC);
@@ -196,3 +201,4 @@ Container.addSubLayer(ImageD);
 Container.addSubLayer(ImageE);
 Container.addSubLayer(ImageF);
 Container.addSubLayer(ImageG);
+
