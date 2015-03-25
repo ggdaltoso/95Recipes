@@ -14,15 +14,17 @@
 	</head>
 	<body ng-controller="FramerCtrl">
 	
+        <md-content >
+            <!--
       <div class="splash" ng-show="splahScreen">
           <div class="pan"></div>
       </div>
-	  
+	    -->  
     <md-grid-list
         md-cols="3" md-row-height="1:1"
-        md-gutter="8px" ng-show="!splahScreen">
+        md-gutter="8px">
     <md-grid-tile class="blue"
-        md-rowspan="2" md-colspan="2" id="img1">
+        md-rowspan="2" md-colspan="2">
       <md-grid-tile-footer>
             <i class="fa fa-lg fa-cutlery pull-right"></i>
       </md-grid-tile-footer>
@@ -43,7 +45,7 @@
         <i class="fa fa-lg fa-glass pull-right"></i>
       </md-grid-tile-footer>
     </md-grid-tile>
-    <md-grid-tile class="red"
+    <md-grid-tile class="darkBlue"
         md-rowspan="1" md-colspan="1">
       <md-grid-tile-footer>
         <i class="fa fa-lg fa-cutlery pull-right"></i>
@@ -55,21 +57,24 @@
         <i class="fa fa-lg fa-cutlery pull-right"></i>
       </md-grid-tile-footer>
     </md-grid-tile>    
-    <md-grid-tile class="red"
+    <md-grid-tile class="orange"
         md-rowspan="1" md-colspan="1">
       <md-grid-tile-footer>
         <i class="fa fa-lg fa-cutlery pull-right"></i>
       </md-grid-tile-footer>
     </md-grid-tile>
   </md-grid-list>
+  
+      <md-button class="md-primary md-fab md-fab-bottom-right" aria-label="Add recipe" style="position: fixed;">
+        <md-icon md-svg-src="../../bower_components/material-design-icons/content/svg/design/ic_add_24px.svg" aria-hidden="true"></md-icon>
+      </md-button>
+        </md-content>
 	
 	<script src="../../bower_components/angular/angular.min.js"></script>
 	<script src="../../bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="../../bower_components/angular-aria/angular-aria.min.js"></script>   
     <script src="../../bower_components/angular-material/angular-material.min.js"></script>
 	
-	<script src="framer/framer.js"></script>
-	<script src="appframer.js"></script>
 	<script src="app.js"></script>
 	</body>
 </html>

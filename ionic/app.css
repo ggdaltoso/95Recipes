@@ -1,24 +1,22 @@
 body{
-  background: #424242;
-  font-family: 'Roboto', sans-serif;
-  font-size:14px;
-  margin: 0px;
-  padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size:14px;
+    margin: 0px;
 }
 
 .splash {
-  background-color: #ff5244;
-    
-  width: 100%;
-  height: 100%;
-    
-  position: fixed;
-    
-  top:0;
-  left:0;
-  z-index: 1;
-    
-  display: block !important;        
+    background-color: #ff5244;
+
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+
+    top:0;
+    left:0;
+    z-index: 1;
+
+    display: block !important;        
 }
 
 .pan{
@@ -27,38 +25,32 @@ body{
     height: 100%;
 }
 
-.gray {
-  background: #f5f5f5; }
-.green {
-  background: #b9f6ca; }
-.yellow {
-  background: #ffff8d; }
-.blue {
-  background: #84ffff; }
-.darkBlue {
-  background: #80d8ff; }
-.deepBlue {
-  background: #448aff; }
-.purple {
-  background: #b388ff; }
-.lightPurple {
-  background: #8c9eff; }
-.red {
-  background: #ff8a80; }
-.pink {
-  background: #ff80ab; }
+.gray { background: #F5F5F5; }
+.green { background: #B9F6CA; }
+.yellow { background: #FFFF8D; }
+.blue { background: #84FFFF; }
+.darkBlue { background: #80D8FF; }
+.deepBlue { background: #448AFF; }
+.purple { background: #B388FF; }
+.lightPurple { background: #8C9EFF; }
+.red { background: #FF8A80; }
+.pink { background: #FF80AB; }
+.orange {background-color: #FF8800;}
 
 md-grid-tile {
-  -webkit-transition: all 500ms ease-out;
+    -webkit-transition: all 500ms ease-out;
     -moz-transition: all 500ms ease-out;
     -o-transition: all 500ms ease-out;
     transition: all 500ms ease-out;
 }
 
 md-grid-tile-footer figcaption {
-  width: 100%; 
-  padding-right: 10px;
+    width: 100%; 
+    padding-right: 10px;
 }
 md-grid-tile-footer figcaption i {    
-  text-align: right; 
+    text-align: right; 
+}
+md-content{
+    padding: 5px;
 }
