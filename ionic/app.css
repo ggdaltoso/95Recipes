@@ -37,6 +37,14 @@ body{
 .pink { background: #FF80AB; }
 .orange {background-color: #FF8800;}
 
+.menuBtn{
+    height: 38px;
+    margin: 16px 0 0 16px;
+}
+md-toolbar h1 {
+  font-weight: normal;
+}
+
 md-grid-tile {
     -webkit-transition: all 500ms ease-out;
     -moz-transition: all 500ms ease-out;
@@ -53,4 +61,11 @@ md-grid-tile-footer figcaption i {
 }
 md-content{
     padding: 5px;
+}
+
+md-list .md-button {
+  color: inherit;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
 }

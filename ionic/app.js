@@ -1,11 +1,19 @@
 var app = angular.module( 'FramerApp', [ 'ngMaterial' ] );
 
 app.config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
+    $mdThemingProvider.theme('default')
     .primaryPalette('red');
-  $mdThemingProvider.theme('default').backgroundPalette('red');
+    $mdThemingProvider.theme('default').backgroundPalette('red');
 })
 
-app.controller('FramerCtrl', ['$scope', function($scope){
-  $scope.splahScreen = true;
+app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+    $scope.splahScreen = true;
+
+    $scope.toggleSidenav = function(menuId) {
+        $mdSidenav(menuId).toggle();
+        
+        setTimeout(function(){
+            $mdSidenav(menuId).toggle();
+        }, 500);
+    };
 }]);
