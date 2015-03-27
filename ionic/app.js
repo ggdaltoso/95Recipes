@@ -11,9 +11,17 @@ app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
-        
+
         setTimeout(function(){
             $mdSidenav(menuId).toggle();
         }, 500);
     };
+
+    $scope.openSidenav = function(menuId) {
+      $mdSidenav(menuId).open();
+    }
+
+    $scope.closeSidenav = function(menuId) {
+      $mdSidenav(menuId).close();
+    }
 }]);
