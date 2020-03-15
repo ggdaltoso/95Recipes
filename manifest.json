@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
-  "start_url": "/95Recipes",
+  "start_url": "/95Recipes/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
