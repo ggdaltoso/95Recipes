@@ -1,6 +1,7 @@
 {
   "name": "mycookbook",
   "version": "0.1.0",
+  "homepage": "https://ggdaltoso.dev/mycookbook",
   "private": true,
   "dependencies": {
     "@react95/core": "https://pkg.csb.dev/React95/React95/commit/9d2a0422/@react95/core",
