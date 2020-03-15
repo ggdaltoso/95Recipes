@@ -45,7 +45,7 @@ function App() {
   const [allIngredients, setAllIngredients] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState({});
   const [showModal, toggleModal] = useState(false);
-  const [showFilterModal, toggleFilterModal] = useState(false);
+  const [showFilterModal, toggleFilterModal] = useState(true);
 
   function openModal() {
     toggleModal(true);
@@ -172,27 +172,33 @@ function App() {
           ]}
         >
           <Fieldset legend="Ingredients">
-            {allIngredients.map(({ name, checked }) => (
-              <div
-                key={name}
-                style={{
-                  width: '30%',
-                  display: 'inline-block',
-                }}
-              >
-                <Checkbox
-                  checked={checked}
-                  onClick={() => {
-                    const changedIngredients = allIngredients.map(i =>
-                      i.name === name ? { name, checked: !i.checked } : i,
-                    );
-                    setAllIngredients(changedIngredients);
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+              }}
+            >
+              {allIngredients.map(({ name, checked }) => (
+                <div
+                  key={name}
+                  style={{
+                    width: '50%',
                   }}
                 >
-                  {name}
-                </Checkbox>
-              </div>
-            ))}
+                  <Checkbox
+                    checked={checked}
+                    onClick={() => {
+                      const changedIngredients = allIngredients.map(i =>
+                        i.name === name ? { name, checked: !i.checked } : i,
+                      );
+                      setAllIngredients(changedIngredients);
+                    }}
+                  >
+                    {name}
+                  </Checkbox>
+                </div>
+              ))}
+            </div>
           </Fieldset>
         </Modal>
       )}
