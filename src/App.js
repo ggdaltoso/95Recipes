@@ -7,10 +7,12 @@ import {
   Frame,
   Modal,
   Button,
+  Icon,
 } from '@react95/core/dist';
 
 import localforage from 'localforage';
-import Icon from '@react95/core/dist/Icon';
+
+import { Recipes } from './components';
 
 localforage.config({
   driver: localforage.WEBSQL,
@@ -27,15 +29,8 @@ const Hero = styled.h1`
   text-align: center;
 `;
 
-const Recipes = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  padding: 0 20px;
-`;
-
 function App() {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState({});
   const [selectedRecipe, setSelectedRecipe] = useState([]);
   const [showModal, toggleModal] = useState(false);
 
@@ -67,15 +62,12 @@ function App() {
               m.preparation = m.elements.slice(pIndex + 1, m.elements.length);
             });
 
-            console.log(models);
-
             localforage.setItem('recipes', models);
             setRecipes(models);
           },
           simpleSheet: true,
         });
       } else {
-        console.log('Tinha no localStorage', recipes);
         setRecipes(recipes);
       }
     }
@@ -86,21 +78,15 @@ function App() {
   return (
     <ThemeProvider>
       <GlobalStyle />
-      <Hero>95 Receitas</Hero>
+      <Hero>95 Recipes </Hero>
 
-      <Recipes>
-        {Object.values(recipes).map(({ name }) => (
-          <Frame
-            key={name}
-            onClick={() => {
-              setSelectedRecipe(name);
-              openModal();
-            }}
-          >
-            {name}
-          </Frame>
-        ))}
-      </Recipes>
+      {Object.keys(recipes).length > 0 && (
+        <Recipes
+          recipes={recipes}
+          openModal={openModal}
+          setSelectedRecipe={setSelectedRecipe}
+        />
+      )}
 
       {showModal && (
         <Modal
