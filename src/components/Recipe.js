@@ -8,9 +8,14 @@ const StyledRecipe = styled.div`
   align-items: center;
   flex-direction: column;
   text-align: center;
+
+  width: 25%;
+  margin-bottom: 4px;
 `;
 
-const Name = styled.span``;
+const Name = styled.span`
+  word-break: break-word;
+`;
 
 const Recipe = ({ name, ...rest }) => (
   <StyledRecipe {...rest}>

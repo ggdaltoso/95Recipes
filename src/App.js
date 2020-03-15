@@ -8,20 +8,20 @@ import {
   Modal,
   Button,
   Icon,
+  Fieldset,
+  Checkbox,
 } from '@react95/core/dist';
 
 import localforage from 'localforage';
 
 import { Recipes } from './components';
-import Fieldset from '@react95/core/dist/Fieldset';
 
-localforage.config({
-  driver: localforage.WEBSQL,
-  name: '95Recipes.db',
-  version: 1.0,
-  size: 4980736,
-  storeName: 'recipes',
-  description: 'Contains all recipes information',
+const recipesDB = localforage.createInstance({
+  name: ' recipes',
+});
+
+const ingredientsDB = localforage.createInstance({
+  name: 'ingredients',
 });
 
 const Hero = styled.h1`
@@ -42,8 +42,10 @@ function formatQtd(ingredient) {
 
 function App() {
   const [recipes, setRecipes] = useState({});
+  const [allIngredients, setAllIngredients] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState({});
   const [showModal, toggleModal] = useState(false);
+  const [showFilterModal, toggleFilterModal] = useState(false);
 
   function openModal() {
     toggleModal(true);
@@ -55,36 +57,57 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const recipes = await localforage.getItem('recipes');
+      const recipes = await recipesDB.getItem('recipes');
+      const ingredients = await ingredientsDB.getItem('ingredients');
 
       if (!recipes) {
         Tabletop.init({
           key: '1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI',
-          callback: (_, { models }) => {
-            Object.values(models).forEach(m => {
-              delete m.tabletop;
-              delete m.raw;
-
+          callback: (_, data) => {
+            const allRecipes = Object.values(data.models).map(m => {
               const pIndex = m.elements.findIndex(e =>
                 e.Ingredientes.toLowerCase().includes('preparo'),
               );
 
-              m.ingredients = m.elements.slice(0, pIndex);
-              m.preparation = m.elements.slice(pIndex + 1, m.elements.length);
+              const ingredients = m.elements.slice(0, pIndex);
+              const preparation = m.elements.slice(
+                pIndex + 1,
+                m.elements.length,
+              );
+
+              return { name: m.name, ingredients, preparation };
             });
 
-            localforage.setItem('recipes', models);
-            setRecipes(models);
+            const allIngredients = Array.from(
+              new Set(
+                allRecipes
+                  .map(r => r.ingredients.map(i => i.Ingredientes))
+                  .flat()
+                  .sort(),
+              ),
+            ).map(i => ({
+              name: i,
+              checked: false,
+            }));
+
+            recipesDB.setItem('recipes', allRecipes);
+            ingredientsDB.setItem('ingredients', allIngredients);
+
+            setRecipes(allRecipes);
+            setAllIngredients(allIngredients);
           },
           simpleSheet: true,
         });
       } else {
         setRecipes(recipes);
+        setAllIngredients(ingredients);
       }
     }
 
     fetchData();
   }, []);
+
+  const filter = allIngredients.filter(t => t.checked).map(i => i.name);
 
   return (
     <ThemeProvider>
@@ -96,6 +119,8 @@ function App() {
           recipes={recipes}
           openModal={openModal}
           setSelectedRecipe={setSelectedRecipe}
+          openFilterModal={toggleFilterModal}
+          filter={filter}
         />
       )}
 
@@ -131,6 +156,44 @@ function App() {
               </ol>
             </Fieldset>
           )}
+        </Modal>
+      )}
+
+      {showFilterModal && (
+        <Modal
+          width={window.innerWidth}
+          height={window.innerHeight - 30}
+          style={{ top: 0 }}
+          icon="bat_exec"
+          title="Filter"
+          closeModal={() => toggleFilterModal(false)}
+          buttons={[
+            { value: 'Filter', onClick: () => toggleFilterModal(false) },
+          ]}
+        >
+          <Fieldset legend="Ingredients">
+            {allIngredients.map(({ name, checked }) => (
+              <div
+                key={name}
+                style={{
+                  width: '30%',
+                  display: 'inline-block',
+                }}
+              >
+                <Checkbox
+                  checked={checked}
+                  onClick={() => {
+                    const changedIngredients = allIngredients.map(i =>
+                      i.name === name ? { name, checked: !i.checked } : i,
+                    );
+                    setAllIngredients(changedIngredients);
+                  }}
+                >
+                  {name}
+                </Checkbox>
+              </div>
+            ))}
+          </Fieldset>
         </Modal>
       )}
 
