@@ -45,7 +45,7 @@ const Recipes = ({ recipes, setSelectedRecipe, openModal }) => (
           <Recipe
             key={recipe.name}
             onClick={() => {
-              setSelectedRecipe(recipe.name);
+              setSelectedRecipe(recipe);
               openModal();
             }}
             name={recipe.name}

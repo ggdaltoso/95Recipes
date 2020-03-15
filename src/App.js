@@ -13,6 +13,7 @@ import {
 import localforage from 'localforage';
 
 import { Recipes } from './components';
+import Fieldset from '@react95/core/dist/Fieldset';
 
 localforage.config({
   driver: localforage.WEBSQL,
@@ -29,9 +30,19 @@ const Hero = styled.h1`
   text-align: center;
 `;
 
+function formatQtd(ingredient) {
+  if (!ingredient.Quantidade && !ingredient.Medida) {
+    return '';
+  } else if (ingredient.Medida === 'Inteiros') {
+    return ingredient.Quantidade;
+  } else if (ingredient.Quantidade && ingredient.Medida) {
+    return `${ingredient.Quantidade} ${ingredient.Medida}`;
+  }
+}
+
 function App() {
   const [recipes, setRecipes] = useState({});
-  const [selectedRecipe, setSelectedRecipe] = useState([]);
+  const [selectedRecipe, setSelectedRecipe] = useState({});
   const [showModal, toggleModal] = useState(false);
 
   function openModal() {
@@ -93,12 +104,33 @@ function App() {
           width={window.innerWidth}
           height={window.innerHeight - 30}
           style={{ top: 0 }}
-          icon="computer"
-          title={selectedRecipe}
+          icon="bat_exec"
+          title={selectedRecipe.name}
           closeModal={closeModal}
           buttons={[{ value: 'Close', onClick: closeModal }]}
         >
-          {selectedRecipe}
+          <Fieldset legend="Ingredients">
+            {selectedRecipe.ingredients.map(i => {
+              const measure = formatQtd(i);
+              return (
+                <div key={i.Ingredientes}>
+                  <strong>{`${measure} ${i.Ingredientes}`}</strong>
+                  {!measure ? ' a gosto' : ''}
+                  {i['Observação'] && ` - (${i['Observação'].toLowerCase()})`}
+                </div>
+              );
+            })}
+          </Fieldset>
+
+          {selectedRecipe.preparation.length > 0 && (
+            <Fieldset legend="How to prepare" style={{ marginTop: 8 }}>
+              <ol style={{ margin: 0, padding: '0 0 0 12px' }}>
+                {selectedRecipe.preparation.map(i => (
+                  <li key={i.Ingredientes}>{i.Ingredientes}</li>
+                ))}
+              </ol>
+            </Fieldset>
+          )}
         </Modal>
       )}
 
