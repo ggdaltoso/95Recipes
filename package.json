@@ -1,0 +1,45 @@
+{
+  "name": "mycookbook",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@react95/core": "https://pkg.csb.dev/React95/React95/commit/9d2a0422/@react95/core",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@xstyled/styled-components": "^1.17.0",
+    "gh-pages": "^2.2.0",
+    "google-spreadsheet": "^3.0.9",
+    "google-spreadsheet-to-json": "^1.0.0",
+    "localforage": "^1.7.3",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-google-login": "^5.1.2",
+    "react-scripts": "3.4.0",
+    "styled-components": "^5.0.1",
+    "tabletop": "^1.6.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
