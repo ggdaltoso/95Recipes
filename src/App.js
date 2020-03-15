@@ -45,7 +45,7 @@ function App() {
   const [allIngredients, setAllIngredients] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState({});
   const [showModal, toggleModal] = useState(false);
-  const [showFilterModal, toggleFilterModal] = useState(true);
+  const [showFilterModal, toggleFilterModal] = useState(false);
 
   function openModal() {
     toggleModal(true);
