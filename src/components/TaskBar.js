@@ -13,10 +13,12 @@ const Link = styled.a.attrs({
   color: inherit;
 `;
 
-const TaskBar = ({ spreadsheetID }) => {
+const TaskBar = ({ spreadsheetID, onUpdate }) => {
   return (
     <List style={{ position: 'absolute', bottom: 28 }}>
-      <List.Item icon="file_find">Update</List.Item>
+      <List.Item icon="file_find" onClick={onUpdate}>
+        Update
+      </List.Item>
       <List.Item icon="folder_file">
         <Link
           href={`https://docs.google.com/spreadsheets/d/${spreadsheetID}/edit?usp=sharing`}

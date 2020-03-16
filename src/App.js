@@ -14,7 +14,7 @@ import {
 
 import localforage from 'localforage';
 
-import { Recipes, Clock, TaskBar } from './components';
+import { Recipes, Clock, TaskBar, Loading } from './components';
 
 const SPREADSHEET_ID = '1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI';
 
@@ -47,7 +47,8 @@ function App() {
   const [allIngredients, setAllIngredients] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState({});
   const [showModal, toggleModal] = useState(false);
-  const [startClick, toggleStartClick] = useState(true);
+  const [loading, toggleLoading] = useState(false);
+  const [startClick, toggleStartClick] = useState(false);
   const [showFilterModal, toggleFilterModal] = useState(false);
 
   function openModal() {
@@ -58,49 +59,53 @@ function App() {
     toggleModal(false);
   }
 
+  function getDataFromSpreadsheet() {
+    toggleLoading(true);
+    Tabletop.init({
+      key: SPREADSHEET_ID,
+      callback: (_, data) => {
+        const allRecipes = Object.values(data.models).map(m => {
+          const pIndex = m.elements.findIndex(e =>
+            e.Ingredientes.toLowerCase().includes('preparo'),
+          );
+
+          const ingredients = m.elements.slice(0, pIndex);
+          const preparation = m.elements.slice(pIndex + 1, m.elements.length);
+
+          return { name: m.name, ingredients, preparation };
+        });
+
+        const allIngredients = Array.from(
+          new Set(
+            allRecipes
+              .map(r => r.ingredients.map(i => i.Ingredientes))
+              .flat()
+              .sort(),
+          ),
+        ).map(i => ({
+          name: i,
+          checked: false,
+        }));
+
+        recipesDB.setItem('recipes', allRecipes);
+        ingredientsDB.setItem('ingredients', allIngredients);
+
+        setRecipes(allRecipes);
+        setAllIngredients(allIngredients);
+
+        setTimeout(() => toggleLoading(false));
+      },
+      simpleSheet: true,
+    });
+  }
+
   useEffect(() => {
     async function fetchData() {
       const recipes = await recipesDB.getItem('recipes');
       const ingredients = await ingredientsDB.getItem('ingredients');
 
       if (!recipes) {
-        Tabletop.init({
-          key: SPREADSHEET_ID,
-          callback: (_, data) => {
-            const allRecipes = Object.values(data.models).map(m => {
-              const pIndex = m.elements.findIndex(e =>
-                e.Ingredientes.toLowerCase().includes('preparo'),
-              );
-
-              const ingredients = m.elements.slice(0, pIndex);
-              const preparation = m.elements.slice(
-                pIndex + 1,
-                m.elements.length,
-              );
-
-              return { name: m.name, ingredients, preparation };
-            });
-
-            const allIngredients = Array.from(
-              new Set(
-                allRecipes
-                  .map(r => r.ingredients.map(i => i.Ingredientes))
-                  .flat()
-                  .sort(),
-              ),
-            ).map(i => ({
-              name: i,
-              checked: false,
-            }));
-
-            recipesDB.setItem('recipes', allRecipes);
-            ingredientsDB.setItem('ingredients', allIngredients);
-
-            setRecipes(allRecipes);
-            setAllIngredients(allIngredients);
-          },
-          simpleSheet: true,
-        });
+        getDataFromSpreadsheet();
       } else {
         setRecipes(recipes);
         setAllIngredients(ingredients);
@@ -219,7 +224,15 @@ function App() {
         width="100%"
         p={2}
       >
-        {startClick && <TaskBar spreadsheetID={SPREADSHEET_ID} />}
+        {startClick && (
+          <TaskBar
+            spreadsheetID={SPREADSHEET_ID}
+            onUpdate={() => {
+              toggleStartClick(false);
+              getDataFromSpreadsheet();
+            }}
+          />
+        )}
         <Button
           style={{
             display: 'flex',
@@ -234,6 +247,7 @@ function App() {
         </Button>
         <Clock />
       </Frame>
+      {loading && <Loading />}
     </ThemeProvider>
   );
 }
