@@ -14,7 +14,7 @@ import {
 
 import localforage from 'localforage';
 
-import { Recipes } from './components';
+import { Recipes, Clock } from './components';
 
 const recipesDB = localforage.createInstance({
   name: ' recipes',
@@ -204,7 +204,15 @@ function App() {
       )}
 
       <Frame
-        style={{ position: ' fixed', bottom: 0, left: 0, right: 0 }}
+        style={{
+          position: ' fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          display: 'flex',
+          justifyContent: 'space-between',
+          height: 28,
+        }}
         width="100%"
         p={2}
       >
@@ -219,6 +227,7 @@ function App() {
           <Icon name="logo" style={{ marginRight: 4 }} width={20} height={20} />
           Start
         </Button>
+        <Clock />
       </Frame>
     </ThemeProvider>
   );
