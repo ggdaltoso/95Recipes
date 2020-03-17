@@ -5,16 +5,20 @@ import {
   ThemeProvider,
   GlobalStyle,
   Frame,
-  Modal,
   Button,
   Icon,
-  Fieldset,
-  Checkbox,
 } from '@react95/core/dist';
 
 import localforage from 'localforage';
 
-import { Recipes, Clock, TaskBar, Loading } from './components';
+import {
+  Recipes,
+  Clock,
+  TaskBar,
+  Loading,
+  IngredientsModal,
+  RecipeModal,
+} from './components';
 
 const SPREADSHEET_ID = '1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI';
 
@@ -31,16 +35,6 @@ const Hero = styled.h1`
   width: 100%;
   text-align: center;
 `;
-
-function formatQtd(ingredient) {
-  if (!ingredient.Quantidade && !ingredient.Medida) {
-    return '';
-  } else if (ingredient.Medida === 'Inteiros') {
-    return ingredient.Quantidade;
-  } else if (ingredient.Quantidade && ingredient.Medida) {
-    return `${ingredient.Quantidade} ${ingredient.Medida}`;
-  }
-}
 
 function App() {
   const [recipes, setRecipes] = useState({});
@@ -133,82 +127,15 @@ function App() {
       )}
 
       {showModal && (
-        <Modal
-          width={window.innerWidth}
-          height={window.innerHeight - 30}
-          style={{ top: 0 }}
-          icon="bat_exec"
-          title={selectedRecipe.name}
-          closeModal={closeModal}
-          buttons={[{ value: 'Close', onClick: closeModal }]}
-        >
-          <Fieldset legend="Ingredients">
-            {selectedRecipe.ingredients.map(i => {
-              const measure = formatQtd(i);
-              return (
-                <div key={i.Ingredientes}>
-                  <strong>{`${measure} ${i.Ingredientes}`}</strong>
-                  {!measure ? ' a gosto' : ''}
-                  {i['Observação'] && ` - (${i['Observação'].toLowerCase()})`}
-                </div>
-              );
-            })}
-          </Fieldset>
-
-          {selectedRecipe.preparation.length > 0 && (
-            <Fieldset legend="How to prepare" style={{ marginTop: 8 }}>
-              <ol style={{ margin: 0, padding: '0 0 0 12px' }}>
-                {selectedRecipe.preparation.map(i => (
-                  <li key={i.Ingredientes}>{i.Ingredientes}</li>
-                ))}
-              </ol>
-            </Fieldset>
-          )}
-        </Modal>
+        <RecipeModal selectedRecipe={selectedRecipe} closeModal={closeModal} />
       )}
 
       {showFilterModal && (
-        <Modal
-          width={window.innerWidth}
-          height={window.innerHeight - 30}
-          style={{ top: 0 }}
-          icon="bat_exec"
-          title="Filter"
-          closeModal={() => toggleFilterModal(false)}
-          buttons={[
-            { value: 'Filter', onClick: () => toggleFilterModal(false) },
-          ]}
-        >
-          <Fieldset legend="Ingredients">
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-              }}
-            >
-              {allIngredients.map(({ name, checked }) => (
-                <div
-                  key={name}
-                  style={{
-                    width: '50%',
-                  }}
-                >
-                  <Checkbox
-                    checked={checked}
-                    onClick={() => {
-                      const changedIngredients = allIngredients.map(i =>
-                        i.name === name ? { name, checked: !i.checked } : i,
-                      );
-                      setAllIngredients(changedIngredients);
-                    }}
-                  >
-                    {name}
-                  </Checkbox>
-                </div>
-              ))}
-            </div>
-          </Fieldset>
-        </Modal>
+        <IngredientsModal
+          allIngredients={allIngredients}
+          toggleFilterModal={toggleFilterModal}
+          setAllIngredients={setAllIngredients}
+        />
       )}
 
       <Frame
