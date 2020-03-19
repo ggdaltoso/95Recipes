@@ -1,10 +1,10 @@
-import React from 'react';
-import { Modal, TextArea } from '@react95/core/dist';
+import React from "react";
+import { Modal, TextArea } from "@react95/core";
 
 function formatQtd(ingredient) {
   if (!ingredient.Quantidade && !ingredient.Medida) {
-    return '';
-  } else if (ingredient.Medida === 'Inteiros') {
+    return "";
+  } else if (ingredient.Medida === "Inteiros") {
     return ingredient.Quantidade;
   } else if (ingredient.Quantidade && ingredient.Medida) {
     return `${ingredient.Quantidade} ${ingredient.Medida}`;
@@ -15,7 +15,7 @@ async function share({ title, text }) {
   await navigator.share({
     title,
     text,
-    url: 'https://ggdaltoso.dev/95Recipes/',
+    url: "https://ggdaltoso.dev/95Recipes/"
   });
 }
 
@@ -25,11 +25,11 @@ const RecipeModal = ({ selectedRecipe, closeModal }) => {
 ${selectedRecipe.ingredients
   .map(i => {
     const measure = formatQtd(i);
-    return `${measure} ${i.Ingredientes} ${!measure ? ' a gosto' : ''} ${i[
-      'Observação'
-    ] && ` - (${i['Observação'].toLowerCase()})`}`;
+    return `${measure} ${i.Ingredientes} ${!measure ? " a gosto" : ""} ${i[
+      "Observação"
+    ] && ` - (${i["Observação"].toLowerCase()})`}`;
   })
-  .join('\n')}
+  .join("\n")}
 
 
 How to prepare:
@@ -37,15 +37,15 @@ How to prepare:
 ${selectedRecipe.preparation.length > 0 &&
   selectedRecipe.preparation
     .map((i, index) => `${index + 1}. ${i.Ingredientes}`)
-    .join('\n')}
+    .join("\n")}
   `;
 
-  let buttons = [{ value: 'Close', onClick: closeModal }];
+  let buttons = [{ value: "Close", onClick: closeModal }];
 
   if (share in navigator) {
     buttons.push({
-      value: 'Share',
-      onClick: () => share({ title: selectedRecipe.name, text }),
+      value: "Share",
+      onClick: () => share({ title: selectedRecipe.name, text })
     });
   }
 

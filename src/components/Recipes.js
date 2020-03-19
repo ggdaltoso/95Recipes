@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from '@xstyled/styled-components';
-import { Frame, Modal, List } from '@react95/core/dist';
+import React from "react";
+import styled from "@xstyled/styled-components";
+import { Frame, Modal, List } from "@react95/core";
 
-import Recipe from './Recipe';
+import Recipe from "./Recipe";
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,12 +20,12 @@ const Recipes = ({
   setSelectedRecipe,
   openModal,
   openFilterModal,
-  filter,
+  filter
 }) => {
   const filteredRecipes =
     filter.length > 0
       ? recipes.filter(r =>
-          r.ingredients.some(i => filter.includes(i.Ingredientes)),
+          r.ingredients.some(i => filter.includes(i.Ingredientes))
         )
       : recipes;
 
@@ -36,20 +36,20 @@ const Recipes = ({
       defaultPosition={{ x: 0, y: 50 }}
       style={{
         marginLeft: 20,
-        height: 'auto',
+        height: "auto"
       }}
       width={window.innerWidth - 40}
       menu={[
         {
-          name: 'File',
+          name: "File",
           list: (
             <List>
               <List.Item onClick={() => openFilterModal(true)}>
                 Filter
               </List.Item>
             </List>
-          ),
-        },
+          )
+        }
       ]}
     >
       <Frame
@@ -57,8 +57,8 @@ const Recipes = ({
         boxShadow="in"
         height="100%"
         style={{
-          overflowY: 'auto',
-          maxHeight: '60vh',
+          overflowY: "auto",
+          maxHeight: "60vh"
         }}
       >
         <Wrapper>
@@ -75,7 +75,7 @@ const Recipes = ({
         </Wrapper>
       </Frame>
       {filter.length > 0 && (
-        <FilterResult>Filter: {filter.join(', ')}</FilterResult>
+        <FilterResult>Filter: {filter.join(", ")}</FilterResult>
       )}
     </Modal>
   );

@@ -1,10 +1,10 @@
-import React from 'react';
-import { List } from '@react95/core/dist';
-import styled from '@xstyled/styled-components';
+import React from "react";
+import { List } from "@react95/core";
+import styled from "@xstyled/styled-components";
 
 const Link = styled.a.attrs({
-  target: '_blank',
-  rel: 'noopener noreferrer',
+  target: "_blank",
+  rel: "noopener noreferrer"
 })`
   flex-grow: 1;
   height: 30;
@@ -15,7 +15,7 @@ const Link = styled.a.attrs({
 
 const TaskBar = ({ spreadsheetID, onUpdate }) => {
   return (
-    <List style={{ position: 'absolute', bottom: 28 }}>
+    <List style={{ position: "absolute", bottom: 28 }}>
       <List.Item icon="file_find" onClick={onUpdate}>
         Update
       </List.Item>

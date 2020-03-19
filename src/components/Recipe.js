@@ -1,6 +1,6 @@
-import React from 'react';
-import { Icon } from '@react95/core/dist';
-import styled from '@xstyled/styled-components';
+import React from "react";
+import { Icon } from "@react95/core";
+import styled from "@xstyled/styled-components";
 
 const StyledRecipe = styled.div`
   display: flex;

@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import Tabletop from 'tabletop';
-import styled from '@xstyled/styled-components';
-import {
-  ThemeProvider,
-  GlobalStyle,
-  Frame,
-  Button,
-  Icon,
-} from '@react95/core/dist';
+import React, { useEffect, useState } from "react";
+import Tabletop from "tabletop";
+import styled from "@xstyled/styled-components";
+import { ThemeProvider, GlobalStyle, Frame, Button, Icon } from "@react95/core";
 
-import localforage from 'localforage';
+import localforage from "localforage";
 
 import {
   Recipes,
@@ -17,17 +11,17 @@ import {
   TaskBar,
   Loading,
   IngredientsModal,
-  RecipeModal,
-} from './components';
+  RecipeModal
+} from "./components";
 
-const SPREADSHEET_ID = '1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI';
+const SPREADSHEET_ID = "1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI";
 
 const recipesDB = localforage.createInstance({
-  name: ' recipes',
+  name: " recipes"
 });
 
 const ingredientsDB = localforage.createInstance({
-  name: 'ingredients',
+  name: "ingredients"
 });
 
 const Hero = styled.h1`
@@ -60,7 +54,7 @@ function App() {
       callback: (_, data) => {
         const allRecipes = Object.values(data.models).map(m => {
           const pIndex = m.elements.findIndex(e =>
-            e.Ingredientes.toLowerCase().includes('preparo'),
+            e.Ingredientes.toLowerCase().includes("preparo")
           );
 
           const ingredients = m.elements.slice(0, pIndex);
@@ -74,29 +68,29 @@ function App() {
             allRecipes
               .map(r => r.ingredients.map(i => i.Ingredientes))
               .flat()
-              .sort(),
-          ),
+              .sort()
+          )
         ).map(i => ({
           name: i,
-          checked: false,
+          checked: false
         }));
 
-        recipesDB.setItem('recipes', allRecipes);
-        ingredientsDB.setItem('ingredients', allIngredients);
+        recipesDB.setItem("recipes", allRecipes);
+        ingredientsDB.setItem("ingredients", allIngredients);
 
         setRecipes(allRecipes);
         setAllIngredients(allIngredients);
 
         setTimeout(() => toggleLoading(false));
       },
-      simpleSheet: true,
+      simpleSheet: true
     });
   }
 
   useEffect(() => {
     async function fetchData() {
-      const recipes = await recipesDB.getItem('recipes');
-      const ingredients = await ingredientsDB.getItem('ingredients');
+      const recipes = await recipesDB.getItem("recipes");
+      const ingredients = await ingredientsDB.getItem("ingredients");
 
       if (!recipes) {
         getDataFromSpreadsheet();
@@ -140,13 +134,13 @@ function App() {
 
       <Frame
         style={{
-          position: ' fixed',
+          position: " fixed",
           bottom: 0,
           left: 0,
           right: 0,
-          display: 'flex',
-          justifyContent: 'space-between',
-          height: 28,
+          display: "flex",
+          justifyContent: "space-between",
+          height: 28
         }}
         width="100%"
         p={2}
@@ -162,10 +156,10 @@ function App() {
         )}
         <Button
           style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '2px 3px',
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "2px 3px"
           }}
           onClick={() => toggleStartClick(!startClick)}
         >

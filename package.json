@@ -4,7 +4,7 @@
   "homepage": "https://ggdaltoso.dev/95Recipes",
   "private": true,
   "dependencies": {
-    "@react95/core": "https://pkg.csb.dev/React95/React95/commit/9d2a0422/@react95/core",
+    "@react95/core": "^2.5.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -16,7 +16,9 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-google-login": "^5.1.2",
+    "react-redux": "^7.2.0",
     "react-scripts": "3.4.0",
+    "redux": "^4.0.5",
     "styled-components": "^5.0.1",
     "tabletop": "^1.6.2"
   },
