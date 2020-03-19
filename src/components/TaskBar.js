@@ -2,6 +2,18 @@ import React from "react";
 import { List } from "@react95/core";
 import styled from "@xstyled/styled-components";
 
+const ListItem = styled(List.Item)`
+  ${({ smallIcon }) =>
+    smallIcon
+      ? `
+  i {
+    padding: 4px;
+    background-origin: content-box;
+  }
+  `
+      : ""}
+`;
+
 const Link = styled.a.attrs({
   target: "_blank",
   rel: "noopener noreferrer"
@@ -13,25 +25,26 @@ const Link = styled.a.attrs({
   color: inherit;
 `;
 
-const TaskBar = ({ spreadsheetID, onUpdate }) => {
-  return (
-    <List style={{ position: "absolute", bottom: 28 }}>
-      <List.Item icon="file_find" onClick={onUpdate}>
-        Update
-      </List.Item>
-      <List.Item icon="folder_file">
-        <Link
-          href={`https://docs.google.com/spreadsheets/d/${spreadsheetID}/edit?usp=sharing`}
-        >
-          Spreadsheet
-        </Link>
-      </List.Item>
-      <List.Divider />
-      <List.Item icon="computer_3">
-        <Link href="https://github.com/ggdaltoso/95Recipes">Github</Link>
-      </List.Item>
-    </List>
-  );
-};
+const TaskBar = ({ spreadsheetID, onUpdate }) => (
+  <List style={{ position: "absolute", bottom: 28 }}>
+    <ListItem icon="file_find" onClick={onUpdate}>
+      Update
+    </ListItem>
+    <ListItem icon="folder_file">
+      <Link
+        href={`https://docs.google.com/spreadsheets/d/${spreadsheetID}/edit?usp=sharing`}
+      >
+        Spreadsheet
+      </Link>
+    </ListItem>
+    <List.Divider />
+    <ListItem smallIcon icon="file_pen" onClick={onUpdate}>
+      <Link href="https://ggdaltoso.dev">My Blog</Link>
+    </ListItem>
+    <ListItem icon="computer_3">
+      <Link href="https://github.com/ggdaltoso/95Recipes">Github</Link>
+    </ListItem>
+  </List>
+);
 
 export default TaskBar;
