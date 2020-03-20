@@ -4,7 +4,7 @@
   "homepage": "https://ggdaltoso.dev/95Recipes",
   "private": true,
   "dependencies": {
-    "@react95/core": "^2.5.0",
+    "@react95/core": "^2.5.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",

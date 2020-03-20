@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Tabletop from "tabletop";
-import styled from "@xstyled/styled-components";
+import styled, { createGlobalStyle } from "@xstyled/styled-components";
 import { ThemeProvider, GlobalStyle, Frame, Button, Icon } from "@react95/core";
 
 import localforage from "localforage";
@@ -32,6 +32,12 @@ const Hero = styled.h1`
   font-size: 40px;
   width: 100%;
   text-align: center;
+`;
+
+const Style = createGlobalStyle`
+  body {
+    font-size: 12px;
+  }
 `;
 
 function App() {
@@ -112,6 +118,7 @@ function App() {
   return (
     <ThemeProvider>
       <GlobalStyle />
+      <Style />
       <Hero>95 Recipes </Hero>
 
       {Object.keys(recipes).length > 0 && (
