@@ -57,12 +57,14 @@ ${
       title={selectedRecipe.name}
       closeModal={closeModal}
       buttons={[
-        navigator.share !== undefined
-          ? {
-              value: "Share",
-              onClick: () => share({ title: selectedRecipe.name, text })
-            }
-          : undefined,
+        ...(navigator.share !== undefined
+          ? [
+              {
+                value: "Share",
+                onClick: () => share({ title: selectedRecipe.name, text })
+              }
+            ]
+          : []),
         { value: "Close", onClick: closeModal }
       ]}
     >
