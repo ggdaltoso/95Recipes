@@ -34,20 +34,15 @@ ${selectedRecipe.ingredients
 
 How to prepare:
 
-${selectedRecipe.preparation.length > 0 &&
-  selectedRecipe.preparation
-    .map((i, index) => `${index + 1}. ${i.Ingredientes}`)
-    .join("\n")}
-  `;
+${
+  selectedRecipe.preparation.length > 0
+    ? selectedRecipe.preparation
+        .map((i, index) => `${index + 1}. ${i.Ingredientes}`)
+        .join("\n")
+    : ""
+}
 
-  let buttons = [{ value: "Close", onClick: closeModal }];
-
-  if (share in navigator) {
-    buttons.push({
-      value: "Share",
-      onClick: () => share({ title: selectedRecipe.name, text })
-    });
-  }
+`;
 
   const boxProps = {
     width: isMobile ? window.innerWidth : undefined,
@@ -61,7 +56,15 @@ ${selectedRecipe.preparation.length > 0 &&
       icon="bat_exec"
       title={selectedRecipe.name}
       closeModal={closeModal}
-      buttons={buttons}
+      buttons={[
+        navigator.share !== undefined
+          ? {
+              value: "Share",
+              onClick: () => share({ title: selectedRecipe.name, text })
+            }
+          : undefined,
+        { value: "Close", onClick: closeModal }
+      ]}
     >
       <TextArea legend="Ingredients" value={text} rows={30} readOnly />
     </Modal>
