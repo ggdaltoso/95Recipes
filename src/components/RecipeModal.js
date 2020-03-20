@@ -19,7 +19,7 @@ async function share({ title, text }) {
   });
 }
 
-const RecipeModal = ({ selectedRecipe, closeModal }) => {
+const RecipeModal = ({ selectedRecipe, closeModal, isMobile }) => {
   const text = `Ingredients:
 
 ${selectedRecipe.ingredients
@@ -49,10 +49,14 @@ ${selectedRecipe.preparation.length > 0 &&
     });
   }
 
+  const boxProps = {
+    width: isMobile ? window.innerWidth : undefined,
+    height: isMobile ? window.innerHeight - 30 : "auto"
+  };
+
   return (
     <Modal
-      width={window.innerWidth}
-      height={window.innerHeight - 30}
+      {...boxProps}
       style={{ top: 0 }}
       icon="bat_exec"
       title={selectedRecipe.name}

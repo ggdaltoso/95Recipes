@@ -4,12 +4,17 @@ import { Modal, Fieldset, Checkbox } from "@react95/core";
 const IngredientsModal = ({
   allIngredients,
   toggleFilterModal,
-  setAllIngredients
+  setAllIngredients,
+  isMobile
 }) => {
+  const boxProps = {
+    width: isMobile ? window.innerWidth : undefined,
+    height: isMobile ? window.innerHeight - 30 : "auto"
+  };
+
   return (
     <Modal
-      width={window.innerWidth}
-      height={window.innerHeight - 30}
+      {...boxProps}
       style={{ top: 0 }}
       icon="bat_exec"
       title="Filter"

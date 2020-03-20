@@ -24,6 +24,10 @@ const ingredientsDB = localforage.createInstance({
   name: "ingredients"
 });
 
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  navigator.userAgent
+);
+
 const Hero = styled.h1`
   font-size: 40px;
   width: 100%;
@@ -117,11 +121,16 @@ function App() {
           setSelectedRecipe={setSelectedRecipe}
           openFilterModal={toggleFilterModal}
           filter={filter}
+          isMobile={isMobile}
         />
       )}
 
       {showModal && (
-        <RecipeModal selectedRecipe={selectedRecipe} closeModal={closeModal} />
+        <RecipeModal
+          selectedRecipe={selectedRecipe}
+          closeModal={closeModal}
+          isMobile={isMobile}
+        />
       )}
 
       {showFilterModal && (
@@ -129,6 +138,7 @@ function App() {
           allIngredients={allIngredients}
           toggleFilterModal={toggleFilterModal}
           setAllIngredients={setAllIngredients}
+          isMobile={isMobile}
         />
       )}
 

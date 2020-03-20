@@ -20,7 +20,8 @@ const Recipes = ({
   setSelectedRecipe,
   openModal,
   openFilterModal,
-  filter
+  filter,
+  isMobile
 }) => {
   const filteredRecipes =
     filter.length > 0
@@ -29,16 +30,22 @@ const Recipes = ({
         )
       : recipes;
 
+  const boxProps = {
+    defaultPosition: isMobile
+      ? { x: 0, y: 50 }
+      : { x: window.innerWidth / 2 - 250, y: 100 },
+    width: isMobile ? window.innerWidth - 40 : 500
+  };
+
   return (
     <Modal
       title={`${Object.keys(recipes).length} recipes`}
       icon="windows_explorer"
-      defaultPosition={{ x: 0, y: 50 }}
       style={{
         marginLeft: 20,
         height: "auto"
       }}
-      width={window.innerWidth - 40}
+      {...boxProps}
       menu={[
         {
           name: "File",

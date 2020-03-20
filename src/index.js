@@ -17,11 +17,7 @@ ReactDOM.render(
 );
 
 serviceWorker.register({
-  onSuccess: () => {
-    store.dispatch({ type: SW_INIT });
-  },
-  onUpdate: registration => {
-    console.log("There is a new version");
-    store.dispatch({ type: SW_UPDATE, payload: registration });
-  }
+  onSuccess: () => store.dispatch({ type: SW_INIT }),
+  onUpdate: registration =>
+    store.dispatch({ type: SW_UPDATE, payload: registration })
 });
