@@ -9,6 +9,7 @@ const ListItem = styled(List.Item)`
   i {
     padding: 4px;
     background-origin: content-box;
+    flex-shrink: 0;
   }
   `
       : ""}

@@ -55,7 +55,7 @@ ${
     <Modal
       {...boxProps}
       style={{ top: 0 }}
-      icon="bat_exec"
+      icon="file_text"
       title={selectedRecipe.name}
       closeModal={closeModal}
       buttons={[
