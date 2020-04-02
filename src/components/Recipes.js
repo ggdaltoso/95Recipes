@@ -63,6 +63,7 @@ const Recipes = ({
         bg="white"
         boxShadow="in"
         height="100%"
+        p={10}
         style={{
           overflowY: "auto",
           maxHeight: "60vh"

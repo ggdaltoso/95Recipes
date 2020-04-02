@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Tabletop from "tabletop";
 import styled, { createGlobalStyle } from "@xstyled/styled-components";
-import { ThemeProvider, GlobalStyle, Frame, Button, Icon } from "@react95/core";
+import { ThemeProvider, GlobalStyle, TaskBar } from "@react95/core";
 
 import localforage from "localforage";
 
 import {
   Recipes,
-  Clock,
-  TaskBar,
   Loading,
   IngredientsModal,
-  RecipeModal
+  RecipeModal,
+  TaskList
 } from "./components";
 
 const SPREADSHEET_ID = "1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI";
@@ -46,7 +45,6 @@ function App() {
   const [selectedRecipe, setSelectedRecipe] = useState({});
   const [showModal, toggleModal] = useState(false);
   const [loading, toggleLoading] = useState(false);
-  const [startClick, toggleStartClick] = useState(false);
   const [showFilterModal, toggleFilterModal] = useState(false);
 
   function openModal() {
@@ -149,42 +147,17 @@ function App() {
         />
       )}
 
-      <Frame
-        style={{
-          position: " fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          display: "flex",
-          justifyContent: "space-between",
-          height: 28
-        }}
-        width="100%"
-        p={2}
-      >
-        {startClick && (
-          <TaskBar
+      <TaskBar
+        list={
+          <TaskList
             spreadsheetID={SPREADSHEET_ID}
             onUpdate={() => {
-              toggleStartClick(false);
               getDataFromSpreadsheet();
             }}
           />
-        )}
-        <Button
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "2px 3px"
-          }}
-          onClick={() => toggleStartClick(!startClick)}
-        >
-          <Icon name="logo" style={{ marginRight: 4 }} width={20} height={20} />
-          Start
-        </Button>
-        <Clock />
-      </Frame>
+        }
+      />
+
       {loading && <Loading />}
     </ThemeProvider>
   );

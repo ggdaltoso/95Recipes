@@ -25,8 +25,8 @@ const Link = styled.a.attrs({
   color: inherit;
 `;
 
-const TaskBar = ({ spreadsheetID, onUpdate }) => (
-  <List style={{ position: "absolute", bottom: 28 }}>
+const TaskList = ({ spreadsheetID, onUpdate }) => (
+  <List>
     <ListItem icon="file_find" onClick={onUpdate}>
       Update
     </ListItem>
@@ -47,4 +47,4 @@ const TaskBar = ({ spreadsheetID, onUpdate }) => (
   </List>
 );
 
-export default TaskBar;
+export default TaskList;
