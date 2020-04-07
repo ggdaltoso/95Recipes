@@ -17,6 +17,10 @@ jobs:
           git config --global user.name ggdaltoso
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
       - name: Install dependencies
       - run: yarn
       - name: Creating an optimized production build
