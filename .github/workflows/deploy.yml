@@ -22,12 +22,12 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
-      - run: yarn
+        run: yarn
       - name: Creating an optimized production build
-      - run: yarn build
+        run: yarn build
         env:
           CI: true
       - name: Deploy to gh-pages
-      - run: yarn deploy
+        run: yarn deploy
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
