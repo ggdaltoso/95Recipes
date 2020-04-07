@@ -1,0 +1,23 @@
+name: Deploy Recipes
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Configure CI Git User
+        run: |
+          git remote set-url origin https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git checkout master
+          git config --global user.email ggdaltoso@gmail.com
+          git config --global user.name ggdaltoso
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - run: yarn
+      - run: yarn build
+        env:
+          CI: true
