@@ -17,14 +17,13 @@ jobs:
           git config --global user.name ggdaltoso
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
       - name: Install dependencies
       - run: yarn
-
       - name: Creating an optimized production build
       - run: yarn build
         env:
           CI: true
-
       - name: Deploy to gh-pages
       - run: yarn deploy
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
