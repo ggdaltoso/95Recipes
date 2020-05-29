@@ -5,11 +5,11 @@ const IngredientsModal = ({
   allIngredients,
   toggleFilterModal,
   setAllIngredients,
-  isMobile
+  isMobile,
 }) => {
   const boxProps = {
     width: isMobile ? window.innerWidth : undefined,
-    height: isMobile ? window.innerHeight - 30 : "auto"
+    height: isMobile ? window.innerHeight - 30 : "auto",
   };
 
   return (
@@ -25,20 +25,20 @@ const IngredientsModal = ({
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap"
+            flexWrap: "wrap",
           }}
         >
           {allIngredients.map(({ name, checked }) => (
             <div
               key={name}
               style={{
-                width: "50%"
+                width: "50%",
               }}
             >
               <Checkbox
                 checked={checked}
                 onClick={() => {
-                  const changedIngredients = allIngredients.map(i =>
+                  const changedIngredients = allIngredients.map((i) =>
                     i.name === name ? { name, checked: !i.checked } : i
                   );
                   setAllIngredients(changedIngredients);
