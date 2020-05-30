@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Tabletop from "tabletop";
-import styled, { createGlobalStyle } from "@xstyled/styled-components";
-import { ThemeProvider, GlobalStyle, TaskBar } from "@react95/core";
+import React, { useEffect, useState } from 'react';
+import Tabletop from 'tabletop';
+import styled, { createGlobalStyle } from '@xstyled/styled-components';
+import { ThemeProvider, GlobalStyle, TaskBar } from '@react95/core';
 
-import localforage from "localforage";
+import localforage from 'localforage';
 
 import {
   Recipes,
@@ -11,20 +11,20 @@ import {
   IngredientsModal,
   RecipeModal,
   TaskList,
-} from "./components";
+} from './components';
 
-const SPREADSHEET_ID = "1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI";
+const SPREADSHEET_ID = '1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI';
 
 const recipesDB = localforage.createInstance({
-  name: " recipes",
+  name: ' recipes',
 });
 
 const ingredientsDB = localforage.createInstance({
-  name: "ingredients",
+  name: 'ingredients',
 });
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  navigator.userAgent
+  navigator.userAgent,
 );
 
 const Hero = styled.h1`
@@ -62,19 +62,19 @@ function App() {
       callback: (_, data) => {
         const allRecipes = Object.values(data.models).map((m) => {
           const pIndex = m.elements.findIndex((e) =>
-            e.Ingredientes.toLowerCase().includes("preparo")
+            e.Ingredientes.toLowerCase().includes('preparo'),
           );
           const imgIndex = m.elements.findIndex((e) =>
-            e.Ingredientes.toLowerCase().includes("imagens")
+            e.Ingredientes.toLowerCase().includes('imagens'),
           );
 
           const hasImgs = imgIndex !== -1;
 
           const ingredients = m.elements.slice(0, pIndex);
-          const preparation = m.elements.slice(
-            pIndex + 1,
-            hasImgs ? imgIndex : m.elements.length
-          );
+          const preparation = m.elements
+            .slice(pIndex + 1, hasImgs ? imgIndex : m.elements.length)
+            .map((i) => i.Ingredientes);
+
           const images = hasImgs
             ? m.elements
                 .slice(imgIndex + 1, m.elements.length)
@@ -89,15 +89,15 @@ function App() {
             allRecipes
               .map((r) => r.ingredients.map((i) => i.Ingredientes))
               .flat()
-              .sort()
-          )
+              .sort(),
+          ),
         ).map((i) => ({
           name: i,
           checked: false,
         }));
 
-        recipesDB.setItem("recipes", allRecipes);
-        ingredientsDB.setItem("ingredients", allIngredients);
+        recipesDB.setItem('recipes', allRecipes);
+        ingredientsDB.setItem('ingredients', allIngredients);
 
         setRecipes(allRecipes);
         setAllIngredients(allIngredients);
@@ -110,8 +110,8 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const recipes = await recipesDB.getItem("recipes");
-      const ingredients = await ingredientsDB.getItem("ingredients");
+      const recipes = await recipesDB.getItem('recipes');
+      const ingredients = await ingredientsDB.getItem('ingredients');
 
       if (!recipes) {
         getDataFromSpreadsheet();

@@ -24,7 +24,7 @@ ${text}`,
 
 const GridImage = styled.div`
   background-position: 50%;
-  background-size: contain;
+  background-size: cover;
 
   ${({ driveId }) => `
     background-image: url('https://drive.google.com/uc?id=${driveId}');
@@ -47,7 +47,8 @@ const ImgGrid = styled.div`
 const RecipeWrapper = styled.div`
   overflow-y: auto;
 
-  p {
+  p,
+  ol {
     margin-top: 6;
   }
 
@@ -135,26 +136,27 @@ ${steps}
           })}
         </Fieldset>
 
-        <Fieldset
-          legend={howToTitle}
-          style={{
-            marginTop: 4,
-          }}
-        >
-          <ol
+        {selectedRecipe.preparation.length > 0 && (
+          <Fieldset
+            legend={howToTitle}
             style={{
-              marginBottom: 0,
-              paddingLeft: 18,
+              marginTop: 4,
             }}
           >
-            {selectedRecipe.preparation.length > 0 &&
-              selectedRecipe.preparation.map(({ Ingredientes }) => (
-                <li key={Ingredientes}> {Ingredientes}</li>
+            <ol
+              style={{
+                marginBottom: 0,
+                paddingLeft: 18,
+              }}
+            >
+              {selectedRecipe.preparation.map((step) => (
+                <li key={step}>{step}</li>
               ))}
-          </ol>
-        </Fieldset>
+            </ol>
+          </Fieldset>
+        )}
         {selectedRecipe.images.length > 0 && (
-          <Frame boxShadow="in" p={1} mt={8} mx={2} overflowY="auto">
+          <Frame boxShadow="in" p={1} my={8} mx={2} overflowY="auto">
             <ImgGrid>
               {selectedRecipe.images.map((i) => (
                 <GridImage driveId={i} key={i} />
