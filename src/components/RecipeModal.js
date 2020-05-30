@@ -1,7 +1,6 @@
 import React from 'react';
-import { Modal, TextArea } from '@react95/core';
 import styled from '@xstyled/styled-components';
-import Frame from '@react95/core/Frame';
+import { Frame, Fieldset, Modal } from '@react95/core';
 
 function formatQtd(ingredient) {
   if (!ingredient.Quantidade && !ingredient.Medida) {
@@ -45,30 +44,50 @@ const ImgGrid = styled.div`
   }
 `;
 
+const RecipeWrapper = styled.div`
+  overflow-y: auto;
+
+  p {
+    margin-top: 6;
+  }
+
+  p,
+  li:not(:last-child) {
+    margin-bottom: 6;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+`;
+
 const RecipeModal = ({ selectedRecipe, closeModal, isMobile }) => {
-  console.log('RecipeModal -> selectedRecipe', selectedRecipe);
-  const text = `Ingredients:
+  const ingredientsTitle = 'Ingredientes';
+  const howToTitle = 'Modo de preparo';
+  const ingredients = selectedRecipe.ingredients
+    .map((i) => {
+      const measure = formatQtd(i);
+      return `${measure} ${i.Ingredientes} ${!measure ? ' a gosto' : ''} ${
+        i['Observação'] && ` - (${i['Observação'].toLowerCase()})`
+      }`;
+    })
+    .join('\n');
 
-${selectedRecipe.ingredients
-  .map((i) => {
-    const measure = formatQtd(i);
-    return `${measure} ${i.Ingredientes} ${!measure ? ' a gosto' : ''} ${
-      i['Observação'] && ` - (${i['Observação'].toLowerCase()})`
-    }`;
-  })
-  .join('\n')}
+  const steps =
+    selectedRecipe.preparation.length > 0
+      ? selectedRecipe.preparation
+          .map((i, index) => `${index + 1}. ${i.Ingredientes}`)
+          .join('\n')
+      : '';
+
+  const text = `${ingredientsTitle}:
+
+${ingredients}
 
 
-How to prepare:
+${howToTitle}:
 
-${
-  selectedRecipe.preparation.length > 0
-    ? selectedRecipe.preparation
-        .map((i, index) => `${index + 1}. ${i.Ingredientes}`)
-        .join('\n')
-    : ''
-}
-
+${steps}
 `;
 
   const boxProps = {
@@ -95,16 +114,55 @@ ${
         { value: 'Close', onClick: closeModal },
       ]}
     >
-      <TextArea legend="Ingredients" value={text} rows={30} readOnly />
-      {selectedRecipe.images.length > 0 && (
-        <Frame boxShadow="in" p={1} mt={4}>
-          <ImgGrid>
-            {selectedRecipe.images.map((i) => (
-              <GridImage driveId={i} key={i} />
-            ))}
-          </ImgGrid>
-        </Frame>
-      )}
+      <RecipeWrapper
+        style={{
+          height: boxProps.height - 70,
+        }}
+      >
+        <Fieldset legend={ingredientsTitle}>
+          {selectedRecipe.ingredients.map((i) => {
+            const measure = formatQtd(i);
+            return (
+              <p key={i.Ingredientes}>
+                <span>{measure.toLowerCase()}</span>{' '}
+                <span>{i.Ingredientes}</span>
+                {!measure ? ' a gosto' : ''}
+                {i['Observação'] && (
+                  <small> - ({i['Observação'].toLowerCase()})</small>
+                )}
+              </p>
+            );
+          })}
+        </Fieldset>
+
+        <Fieldset
+          legend={howToTitle}
+          style={{
+            marginTop: 4,
+          }}
+        >
+          <ol
+            style={{
+              marginBottom: 0,
+              paddingLeft: 18,
+            }}
+          >
+            {selectedRecipe.preparation.length > 0 &&
+              selectedRecipe.preparation.map(({ Ingredientes }) => (
+                <li key={Ingredientes}> {Ingredientes}</li>
+              ))}
+          </ol>
+        </Fieldset>
+        {selectedRecipe.images.length > 0 && (
+          <Frame boxShadow="in" p={1} mt={8} mx={2} overflowY="auto">
+            <ImgGrid>
+              {selectedRecipe.images.map((i) => (
+                <GridImage driveId={i} key={i} />
+              ))}
+            </ImgGrid>
+          </Frame>
+        )}
+      </RecipeWrapper>
     </Modal>
   );
 };
