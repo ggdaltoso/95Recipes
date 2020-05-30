@@ -10,17 +10,17 @@ import {
   Loading,
   IngredientsModal,
   RecipeModal,
-  TaskList
+  TaskList,
 } from "./components";
 
 const SPREADSHEET_ID = "1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI";
 
 const recipesDB = localforage.createInstance({
-  name: " recipes"
+  name: " recipes",
 });
 
 const ingredientsDB = localforage.createInstance({
-  name: "ingredients"
+  name: "ingredients",
 });
 
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -60,27 +60,40 @@ function App() {
     Tabletop.init({
       key: SPREADSHEET_ID,
       callback: (_, data) => {
-        const allRecipes = Object.values(data.models).map(m => {
-          const pIndex = m.elements.findIndex(e =>
+        const allRecipes = Object.values(data.models).map((m) => {
+          const pIndex = m.elements.findIndex((e) =>
             e.Ingredientes.toLowerCase().includes("preparo")
           );
+          const imgIndex = m.elements.findIndex((e) =>
+            e.Ingredientes.toLowerCase().includes("imagens")
+          );
+
+          const hasImgs = imgIndex !== -1;
 
           const ingredients = m.elements.slice(0, pIndex);
-          const preparation = m.elements.slice(pIndex + 1, m.elements.length);
+          const preparation = m.elements.slice(
+            pIndex + 1,
+            hasImgs ? imgIndex : m.elements.length
+          );
+          const images = hasImgs
+            ? m.elements
+                .slice(imgIndex + 1, m.elements.length)
+                .map((i) => i.Ingredientes)
+            : [];
 
-          return { name: m.name, ingredients, preparation };
+          return { name: m.name, ingredients, preparation, images };
         });
 
         const allIngredients = Array.from(
           new Set(
             allRecipes
-              .map(r => r.ingredients.map(i => i.Ingredientes))
+              .map((r) => r.ingredients.map((i) => i.Ingredientes))
               .flat()
               .sort()
           )
-        ).map(i => ({
+        ).map((i) => ({
           name: i,
-          checked: false
+          checked: false,
         }));
 
         recipesDB.setItem("recipes", allRecipes);
@@ -91,7 +104,7 @@ function App() {
 
         setTimeout(() => toggleLoading(false));
       },
-      simpleSheet: true
+      simpleSheet: true,
     });
   }
 
@@ -111,7 +124,7 @@ function App() {
     fetchData();
   }, []);
 
-  const filter = allIngredients.filter(t => t.checked).map(i => i.name);
+  const filter = allIngredients.filter((t) => t.checked).map((i) => i.name);
 
   return (
     <ThemeProvider>
