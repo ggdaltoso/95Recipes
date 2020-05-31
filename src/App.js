@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Tabletop from 'tabletop';
 import styled, { createGlobalStyle } from '@xstyled/styled-components';
-import { ThemeProvider, GlobalStyle, TaskBar } from '@react95/core';
+import { ThemeProvider, GlobalStyle, TaskBar, Alert } from '@react95/core';
+import { useSelector } from 'react-redux';
 
 import localforage from 'localforage';
 
@@ -46,6 +47,7 @@ function App() {
   const [showModal, toggleModal] = useState(false);
   const [loading, toggleLoading] = useState(false);
   const [showFilterModal, toggleFilterModal] = useState(false);
+  const [alertData, setAlertData] = useState(undefined);
 
   function openModal() {
     toggleModal(true);
@@ -124,6 +126,50 @@ function App() {
     fetchData();
   }, []);
 
+  const isServiceWorkerInitialized = useSelector(
+    (state) => state.serviceWorkerInitialized,
+  );
+  const isServiceWorkerUpdated = useSelector(
+    (state) => state.serviceWorkerUpdated,
+  );
+  const serviceWorkerRegistration = useSelector(
+    (state) => state.serviceWorkerRegistration,
+  );
+
+  useEffect(() => {
+    if (isServiceWorkerInitialized) {
+      setAlertData({
+        message: '95 Recipes has been saved for offline use.',
+        type: 'info',
+        title: 'Offile usage',
+        closeAlert: () => setAlertData(undefined),
+      });
+    }
+  }, [isServiceWorkerInitialized]);
+
+  useEffect(() => {
+    if (isServiceWorkerUpdated) {
+      setAlertData({
+        message: 'New version available! Click here to update',
+        type: 'warning',
+        title: 'Update',
+        closeAlert: () => {
+          const registrationWaiting = serviceWorkerRegistration.waiting;
+
+          if (registrationWaiting) {
+            registrationWaiting.postMessage({ type: 'SKIP_WAITING' });
+
+            registrationWaiting.addEventListener('statechange', (e) => {
+              if (e.target.state === 'activated') {
+                window.location.reload();
+              }
+            });
+          }
+        },
+      });
+    }
+  }, [isServiceWorkerUpdated]);
+
   const filter = allIngredients.filter((t) => t.checked).map((i) => i.name);
 
   return (
@@ -159,6 +205,8 @@ function App() {
           isMobile={isMobile}
         />
       )}
+
+      {alertData && <Alert style={{ zIndex: 2 }} {...alertData} />}
 
       <TaskBar
         list={

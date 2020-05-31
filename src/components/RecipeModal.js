@@ -23,7 +23,8 @@ ${text}`,
 }
 
 const GridImage = styled.div`
-  background-position: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 
   ${({ driveId }) => `
