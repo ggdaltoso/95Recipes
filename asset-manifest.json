@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/95Recipes/static/js/main.5094945b.chunk.js",
-    "main.js.map": "/95Recipes/static/js/main.5094945b.chunk.js.map",
+    "main.js": "/95Recipes/static/js/main.69c47fdf.chunk.js",
+    "main.js.map": "/95Recipes/static/js/main.69c47fdf.chunk.js.map",
     "runtime-main.js": "/95Recipes/static/js/runtime-main.906b4087.js",
     "runtime-main.js.map": "/95Recipes/static/js/runtime-main.906b4087.js.map",
     "static/js/2.251b00f9.chunk.js": "/95Recipes/static/js/2.251b00f9.chunk.js",
     "static/js/2.251b00f9.chunk.js.map": "/95Recipes/static/js/2.251b00f9.chunk.js.map",
     "index.html": "/95Recipes/index.html",
-    "precache-manifest.eda49690a977975f717d2fa5cded3b57.js": "/95Recipes/precache-manifest.eda49690a977975f717d2fa5cded3b57.js",
+    "precache-manifest.a6b61234dffe3de43e9286cd53b97022.js": "/95Recipes/precache-manifest.a6b61234dffe3de43e9286cd53b97022.js",
     "service-worker.js": "/95Recipes/service-worker.js",
     "static/js/2.251b00f9.chunk.js.LICENSE.txt": "/95Recipes/static/js/2.251b00f9.chunk.js.LICENSE.txt",
     "static/media/MS-Sans-Serif.eot": "/95Recipes/static/media/MS-Sans-Serif.73128510.eot",
@@ -926,6 +926,6 @@
   "entrypoints": [
     "static/js/runtime-main.906b4087.js",
     "static/js/2.251b00f9.chunk.js",
-    "static/js/main.5094945b.chunk.js"
+    "static/js/main.69c47fdf.chunk.js"
   ]
 }
