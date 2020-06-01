@@ -24,9 +24,10 @@ const ingredientsDB = localforage.createInstance({
   name: 'ingredients',
 });
 
-const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  navigator.userAgent,
-);
+const isMobile =
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent,
+  ) || window.innerWidth < 500;
 
 const Hero = styled.h1`
   font-size: 40px;
