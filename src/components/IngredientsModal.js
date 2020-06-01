@@ -1,5 +1,5 @@
-import React from "react";
-import { Modal, Fieldset, Checkbox } from "@react95/core";
+import React from 'react';
+import { Modal, Fieldset, Checkbox } from '@react95/core';
 
 const IngredientsModal = ({
   allIngredients,
@@ -9,7 +9,7 @@ const IngredientsModal = ({
 }) => {
   const boxProps = {
     width: isMobile ? window.innerWidth : undefined,
-    height: isMobile ? window.innerHeight - 30 : "auto",
+    height: isMobile ? window.innerHeight - 30 : 'auto',
   };
 
   return (
@@ -19,27 +19,34 @@ const IngredientsModal = ({
       icon="bat_exec"
       title="Filter"
       closeModal={() => toggleFilterModal(false)}
-      buttons={[{ value: "Filter", onClick: () => toggleFilterModal(false) }]}
+      buttons={[{ value: 'Filter', onClick: () => toggleFilterModal(false) }]}
     >
-      <Fieldset legend="Ingredients">
+      <Fieldset
+        legend="Ingredients"
+        style={{
+          height: 1,
+          overflowY: 'auto',
+          flexGrow: 1,
+        }}
+      >
         <div
           style={{
-            display: "flex",
-            flexWrap: "wrap",
+            display: 'flex',
+            flexWrap: 'wrap',
           }}
         >
           {allIngredients.map(({ name, checked }) => (
             <div
               key={name}
               style={{
-                width: "50%",
+                width: '50%',
               }}
             >
               <Checkbox
                 checked={checked}
                 onClick={() => {
                   const changedIngredients = allIngredients.map((i) =>
-                    i.name === name ? { name, checked: !i.checked } : i
+                    i.name === name ? { name, checked: !i.checked } : i,
                   );
                   setAllIngredients(changedIngredients);
                 }}
