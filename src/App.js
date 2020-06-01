@@ -148,27 +148,29 @@ function App() {
   }, [isServiceWorkerInitialized]);
 
   useEffect(() => {
+    const updateServiceWorker = () => {
+      const registrationWaiting = serviceWorkerRegistration.waiting;
+
+      if (registrationWaiting) {
+        registrationWaiting.postMessage({ type: 'SKIP_WAITING' });
+
+        registrationWaiting.addEventListener('statechange', (e) => {
+          if (e.target.state === 'activated') {
+            window.location.reload();
+          }
+        });
+      }
+    };
+
     if (isServiceWorkerUpdated) {
       setAlertData({
         message: 'New version available! Click here to update',
         type: 'warning',
         title: 'Update',
-        closeAlert: () => {
-          const registrationWaiting = serviceWorkerRegistration.waiting;
-
-          if (registrationWaiting) {
-            registrationWaiting.postMessage({ type: 'SKIP_WAITING' });
-
-            registrationWaiting.addEventListener('statechange', (e) => {
-              if (e.target.state === 'activated') {
-                window.location.reload();
-              }
-            });
-          }
-        },
+        closeAlert: () => updateServiceWorker(),
       });
     }
-  }, [isServiceWorkerUpdated]);
+  }, [isServiceWorkerUpdated, serviceWorkerRegistration.waiting]);
 
   const filter = allIngredients.filter((t) => t.checked).map((i) => i.name);
 
