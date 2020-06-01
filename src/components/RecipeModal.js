@@ -78,7 +78,7 @@ const RecipeModal = ({ selectedRecipe, closeModal, isMobile }) => {
   const steps =
     selectedRecipe.preparation.length > 0
       ? selectedRecipe.preparation
-          .map((i, index) => `${index + 1}. ${i.Ingredientes}`)
+          .map((i, index) => `${index + 1}. ${i}`)
           .join('\n')
       : '';
 
@@ -91,6 +91,7 @@ ${howToTitle}:
 
 ${steps}
 `;
+  console.log(text);
 
   const boxProps = {
     width: isMobile ? window.innerWidth : undefined,
