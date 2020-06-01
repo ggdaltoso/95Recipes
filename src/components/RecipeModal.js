@@ -91,7 +91,6 @@ ${howToTitle}:
 
 ${steps}
 `;
-  console.log(text);
 
   const boxProps = {
     width: isMobile ? window.innerWidth : undefined,
