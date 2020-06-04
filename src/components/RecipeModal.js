@@ -90,7 +90,7 @@ const RecipeModal = ({ isMobile }) => {
   }
 
   function closeModal() {
-    return history.push('/');
+    return history.push(`${process.env.PUBLIC_URL}/`);
   }
 
   return recipeSlug && Object.keys(selectedRecipe).length > 0 ? (
