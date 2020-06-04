@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled, { createGlobalStyle } from '@xstyled/styled-components';
-import { ThemeProvider, GlobalStyle, TaskBar } from '@react95/core';
+import { TaskBar } from '@react95/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { Recipes, IngredientsModal, RecipeModal, TaskList } from './components';
@@ -48,8 +48,7 @@ function App() {
   const filter = allIngredients.filter((t) => t.checked).map((i) => i.name);
 
   return (
-    <ThemeProvider>
-      <GlobalStyle />
+    <>
       <Style />
       <Hero>95 Recipes </Hero>
 
