@@ -6,6 +6,7 @@ import localforage from 'localforage';
 
 import RecipeContext from './RecipeContext';
 import Loading from './Loading';
+import slugify from '../../utils/slugify';
 
 const SPREADSHEET_ID = '1Uou8R5Bgrdl9M8ykKZeSj5MAl_huugiG3rRIQyMtxvI';
 
@@ -18,7 +19,7 @@ const ingredientsDB = localforage.createInstance({
 });
 
 const RecipeProvider = ({ children }) => {
-  const [recipes, setRecipes] = useState({});
+  const [recipes, setRecipes] = useState([]);
   const [allIngredients, setAllIngredients] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState({});
   const [loading, toggleLoading] = useState(false);
@@ -50,7 +51,9 @@ const RecipeProvider = ({ children }) => {
                 .map((i) => i.Ingredientes)
             : [];
 
-          return { name: m.name, ingredients, preparation, images };
+          const slug = slugify(m.name);
+
+          return { name: m.name, ingredients, preparation, images, slug };
         });
 
         const allIngredients = Array.from(
@@ -139,13 +142,18 @@ const RecipeProvider = ({ children }) => {
     }
   }, [isServiceWorkerUpdated, serviceWorkerRegistration.waiting]);
 
+  function getRecipeFromSlug(slug) {
+    return recipes.find((r) => r.slug === slug) || {};
+  }
+
   return (
     <RecipeContext.Provider
       value={{
+        allIngredients,
+        getRecipeFromSlug,
         recipes,
         selectedRecipe,
         setSelectedRecipe,
-        allIngredients,
         sheetId: SPREADSHEET_ID,
         updateRecipes: getDataFromSpreadsheet,
       }}
