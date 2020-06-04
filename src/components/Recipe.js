@@ -12,6 +12,9 @@ const StyledRecipe = styled.div`
 
   width: 25%;
   margin-bottom: 4px;
+
+  text-decoration: none;
+  color: inherit;
 `;
 
 const Name = styled.span`
@@ -22,7 +25,10 @@ const Recipe = ({ name, slug, ...rest }) => {
   const history = useHistory();
 
   return (
-    <StyledRecipe onClick={() => history.push(`/${slug}`)} {...rest}>
+    <StyledRecipe
+      onClick={() => history.push(`${process.env.PUBLIC_URL}/${slug}`)}
+      {...rest}
+    >
       <Icon name="file_text" style={{ marginBottom: 4 }} />
       <Name>{`${name}.txt`}</Name>
     </StyledRecipe>

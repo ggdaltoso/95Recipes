@@ -64,7 +64,7 @@ function App() {
           />
         )}
         <Switch>
-          <Route path="/:recipeSlug">
+          <Route path={`${process.env.PUBLIC_URL}/:recipeSlug`}>
             <RecipeModal
               selectedRecipe={selectedRecipe}
               closeModal={closeModal}
