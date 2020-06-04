@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { createGlobalStyle } from '@xstyled/styled-components';
 import { ThemeProvider, GlobalStyle, TaskBar } from '@react95/core';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { Recipes, IngredientsModal, RecipeModal, TaskList } from './components';
 import { useRecipes } from './components/RecipeContext';
@@ -52,16 +53,27 @@ function App() {
       <Style />
       <Hero>95 Recipes </Hero>
 
-      {Object.keys(recipes).length > 0 && (
-        <Recipes
-          recipes={recipes}
-          openModal={openModal}
-          setSelectedRecipe={setSelectedRecipe}
-          openFilterModal={toggleFilterModal}
-          filter={filter}
-          isMobile={isMobile}
-        />
-      )}
+      <Router>
+        {Object.keys(recipes).length > 0 && (
+          <Recipes
+            recipes={recipes}
+            openModal={openModal}
+            setSelectedRecipe={setSelectedRecipe}
+            openFilterModal={toggleFilterModal}
+            filter={filter}
+            isMobile={isMobile}
+          />
+        )}
+        <Switch>
+          <Route path="/:recipeSlug">
+            <RecipeModal
+              selectedRecipe={selectedRecipe}
+              closeModal={closeModal}
+              isMobile={isMobile}
+            />
+          </Route>
+        </Switch>
+      </Router>
 
       {showModal && (
         <RecipeModal
