@@ -7,14 +7,18 @@ import * as serviceWorker from './serviceWorker';
 import configureStore from './store';
 import { SW_INIT, SW_UPDATE } from './types';
 import { RecipeProvider } from './components/RecipeContext';
+import { ThemeProvider, GlobalStyle } from '@react95/core';
 
 const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <RecipeProvider>
-      <App />
-    </RecipeProvider>
+    <ThemeProvider>
+      <GlobalStyle />
+      <RecipeProvider>
+        <App />
+      </RecipeProvider>
+    </ThemeProvider>
   </Provider>,
   document.getElementById('root'),
 );
