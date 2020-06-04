@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "@xstyled/styled-components";
-import { Frame, Modal, List } from "@react95/core";
+import React from 'react';
+import styled from '@xstyled/styled-components';
+import { Frame, Modal, List } from '@react95/core';
 
-import Recipe from "./Recipe";
+import Recipe from './Recipe';
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,12 +21,12 @@ const Recipes = ({
   openModal,
   openFilterModal,
   filter,
-  isMobile
+  isMobile,
 }) => {
   const filteredRecipes =
     filter.length > 0
-      ? recipes.filter(r =>
-          r.ingredients.some(i => filter.includes(i.Ingredientes))
+      ? recipes.filter((r) =>
+          r.ingredients.some((i) => filter.includes(i.Ingredientes)),
         )
       : recipes;
 
@@ -34,7 +34,7 @@ const Recipes = ({
     defaultPosition: isMobile
       ? { x: 0, y: 50 }
       : { x: window.innerWidth / 2 - 250, y: 100 },
-    width: isMobile ? window.innerWidth - 40 : 500
+    width: isMobile ? window.innerWidth - 40 : 500,
   };
 
   return (
@@ -43,20 +43,19 @@ const Recipes = ({
       icon="windows_explorer"
       style={{
         marginLeft: 20,
-        height: "auto"
       }}
       {...boxProps}
       menu={[
         {
-          name: "File",
+          name: 'File',
           list: (
             <List>
               <List.Item onClick={() => openFilterModal(true)}>
                 Filter
               </List.Item>
             </List>
-          )
-        }
+          ),
+        },
       ]}
     >
       <Frame
@@ -65,25 +64,18 @@ const Recipes = ({
         height="100%"
         p={10}
         style={{
-          overflowY: "auto",
-          maxHeight: "60vh"
+          overflowY: 'auto',
+          maxHeight: '50vh',
         }}
       >
         <Wrapper>
-          {Object.values(filteredRecipes).map(recipe => (
-            <Recipe
-              key={recipe.name}
-              onClick={() => {
-                setSelectedRecipe(recipe);
-                openModal();
-              }}
-              name={recipe.name}
-            />
+          {Object.values(filteredRecipes).map(({ name, slug }) => (
+            <Recipe key={name} name={name} slug={slug} />
           ))}
         </Wrapper>
       </Frame>
       {filter.length > 0 && (
-        <FilterResult>Filter: {filter.join(", ")}</FilterResult>
+        <FilterResult>Filter: {filter.join(', ')}</FilterResult>
       )}
     </Modal>
   );

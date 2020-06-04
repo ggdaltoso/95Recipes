@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@xstyled/styled-components';
 import { Frame, Fieldset, Modal } from '@react95/core';
+import { useParams, useHistory } from 'react-router-dom';
+
+import { useRecipes } from './RecipeContext';
 
 function formatQtd(ingredient) {
   if (!ingredient.Quantidade && !ingredient.Medida) {
@@ -12,13 +15,11 @@ function formatQtd(ingredient) {
   }
 }
 
-async function share({ title, text }) {
+async function share({ title, slug }) {
   await navigator.share({
     title,
-    text: `*${title}*
-
-${text}`,
-    url: 'https://ggdaltoso.dev/95Recipes/',
+    text: `*Confira a receita de ${title}*`,
+    url: `https://ggdaltoso.dev/95Recipes/${slug}`,
   });
 }
 
@@ -63,41 +64,36 @@ const RecipeWrapper = styled.div`
   }
 `;
 
-const RecipeModal = ({ selectedRecipe, closeModal, isMobile }) => {
-  const ingredientsTitle = 'Ingredientes';
-  const howToTitle = 'Modo de preparo';
-  const ingredients = selectedRecipe.ingredients
-    .map((i) => {
-      const measure = formatQtd(i);
-      return `${measure} ${i.Ingredientes} ${!measure ? ' a gosto' : ''} ${
-        i['Observação'] && ` - (${i['Observação'].toLowerCase()})`
-      }`;
-    })
-    .join('\n');
+const ingredientsTitle = 'Ingredientes';
+const howToTitle = 'Modo de preparo';
 
-  const steps =
-    selectedRecipe.preparation.length > 0
-      ? selectedRecipe.preparation
-          .map((i, index) => `${index + 1}. ${i}`)
-          .join('\n')
-      : '';
+const RecipeModal = ({ isMobile }) => {
+  const { recipeSlug } = useParams();
+  const [selectedRecipe, setSelectedRecipe] = useState({});
+  const { getRecipeFromSlug, recipes } = useRecipes();
+  const history = useHistory();
 
-  const text = `${ingredientsTitle}:
-
-${ingredients}
-
-
-${howToTitle}:
-
-${steps}
-`;
+  useEffect(() => {
+    if (recipes.length > 0) {
+      const recipe = getRecipeFromSlug(recipeSlug);
+      setSelectedRecipe(recipe);
+    }
+  }, [recipeSlug, recipes, getRecipeFromSlug]);
 
   const boxProps = {
     width: isMobile ? window.innerWidth : undefined,
     height: isMobile ? window.innerHeight - 30 : 'auto',
   };
 
-  return (
+  function shareClick() {
+    share({ title: selectedRecipe.name, slug: selectedRecipe.slug });
+  }
+
+  function closeModal() {
+    return history.push('/');
+  }
+
+  return recipeSlug && Object.keys(selectedRecipe).length > 0 ? (
     <Modal
       {...boxProps}
       style={{ top: 0 }}
@@ -109,7 +105,7 @@ ${steps}
           ? [
               {
                 value: 'Share',
-                onClick: () => share({ title: selectedRecipe.name, text }),
+                onClick: shareClick,
               },
             ]
           : []),
@@ -167,7 +163,7 @@ ${steps}
         )}
       </RecipeWrapper>
     </Modal>
-  );
+  ) : null;
 };
 
 export default RecipeModal;

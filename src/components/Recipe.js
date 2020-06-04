@@ -1,6 +1,7 @@
-import React from "react";
-import { Icon } from "@react95/core";
-import styled from "@xstyled/styled-components";
+import React from 'react';
+import { Icon } from '@react95/core';
+import styled from '@xstyled/styled-components';
+import { useHistory } from 'react-router-dom';
 
 const StyledRecipe = styled.div`
   display: flex;
@@ -17,11 +18,15 @@ const Name = styled.span`
   word-break: break-word;
 `;
 
-const Recipe = ({ name, ...rest }) => (
-  <StyledRecipe {...rest}>
-    <Icon name="file_text" style={{ marginBottom: 4 }} />
-    <Name>{`${name}.txt`}</Name>
-  </StyledRecipe>
-);
+const Recipe = ({ name, slug, ...rest }) => {
+  const history = useHistory();
+
+  return (
+    <StyledRecipe onClick={() => history.push(`/${slug}`)} {...rest}>
+      <Icon name="file_text" style={{ marginBottom: 4 }} />
+      <Name>{`${name}.txt`}</Name>
+    </StyledRecipe>
+  );
+};
 
 export default Recipe;
