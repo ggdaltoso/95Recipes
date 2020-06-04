@@ -17,8 +17,8 @@ function formatQtd(ingredient) {
 
 async function share({ title, slug }) {
   await navigator.share({
-    title,
-    text: `*Confira a receita de ${title}*`,
+    title: '95Recipes',
+    text: `Confira a receita de ${title}\n`,
     url: `https://ggdaltoso.dev/95Recipes/${slug}`,
   });
 }
