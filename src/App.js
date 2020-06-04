@@ -101,7 +101,7 @@ function App() {
           />
         }
       />
-    </ThemeProvider>
+    </>
   );
 }
 
