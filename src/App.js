@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, { createGlobalStyle } from '@xstyled/styled-components';
 import { TaskBar } from '@react95/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import 'react-medium-image-zoom/dist/styles.css';
 
 import { Recipes, IngredientsModal, RecipeModal, TaskList } from './components';
 import { useRecipes } from './components/RecipeContext';
