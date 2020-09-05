@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from '@xstyled/styled-components';
 import { Frame, Fieldset, Modal } from '@react95/core';
 import { useParams, useHistory } from 'react-router-dom';
+import Zoom from 'react-medium-image-zoom';
 
 import { useRecipes } from './RecipeContext';
 
@@ -24,6 +25,8 @@ async function share({ title, slug }) {
 }
 
 const GridImage = styled.div`
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -38,7 +41,7 @@ const ImgGrid = styled.div`
   grid-gap: 1px;
   grid-template-columns: 1fr 1fr 1fr;
 
-  ${GridImage}::before {
+  div::before {
     content: '';
     padding-bottom: 100%;
     display: inline-block;
@@ -156,7 +159,9 @@ const RecipeModal = ({ isMobile }) => {
           <Frame boxShadow="in" p={1} my={8} mx={2} overflowY="auto">
             <ImgGrid>
               {selectedRecipe.images.map((i) => (
-                <GridImage driveId={i} key={i} />
+                <Zoom>
+                  <GridImage driveId={i} key={i} role="img" />
+                </Zoom>
               ))}
             </ImgGrid>
           </Frame>
