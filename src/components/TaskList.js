@@ -1,6 +1,6 @@
-import React from "react";
-import { List } from "@react95/core";
-import styled from "@xstyled/styled-components";
+import React from 'react';
+import { List } from '@react95/core';
+import styled from '@xstyled/styled-components';
 
 const ListItem = styled(List.Item)`
   ${({ smallIcon }) =>
@@ -12,12 +12,12 @@ const ListItem = styled(List.Item)`
     flex-shrink: 0;
   }
   `
-      : ""}
+      : ''}
 `;
 
 const Link = styled.a.attrs({
-  target: "_blank",
-  rel: "noopener noreferrer"
+  target: '_blank',
+  rel: 'noopener noreferrer',
 })`
   flex-grow: 1;
   height: 30;
@@ -28,10 +28,10 @@ const Link = styled.a.attrs({
 
 const TaskList = ({ spreadsheetID, onUpdate }) => (
   <List>
-    <ListItem icon="file_find" onClick={onUpdate}>
+    <ListItem icon="file_find_32x32_4bit" onClick={onUpdate}>
       Update
     </ListItem>
-    <ListItem icon="folder_file">
+    <ListItem icon="folder_file_32x32_4bit">
       <Link
         href={`https://docs.google.com/spreadsheets/d/${spreadsheetID}/edit?usp=sharing`}
       >
@@ -39,10 +39,10 @@ const TaskList = ({ spreadsheetID, onUpdate }) => (
       </Link>
     </ListItem>
     <List.Divider />
-    <ListItem smallIcon icon="file_pen" onClick={onUpdate}>
+    <ListItem smallIcon icon="file_pen_32x32_4bit" onClick={onUpdate}>
       <Link href="https://ggdaltoso.dev">My Blog</Link>
     </ListItem>
-    <ListItem icon="computer_3">
+    <ListItem icon="computer_3_32x32_4bit">
       <Link href="https://github.com/ggdaltoso/95Recipes">Github</Link>
     </ListItem>
   </List>

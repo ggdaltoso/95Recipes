@@ -156,6 +156,7 @@ const RecipeProvider = ({ children }) => {
         setSelectedRecipe,
         sheetId: SPREADSHEET_ID,
         updateRecipes: getDataFromSpreadsheet,
+        setAllIngredients,
       }}
     >
       {children}

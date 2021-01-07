@@ -70,7 +70,7 @@ const RecipeWrapper = styled.div`
 const ingredientsTitle = 'Ingredientes';
 const howToTitle = 'Modo de preparo';
 
-const RecipeModal = ({ isMobile }) => {
+const RecipeModal = ({ isMobile, closeModal }) => {
   const { recipeSlug } = useParams();
   const [selectedRecipe, setSelectedRecipe] = useState({});
   const { getRecipeFromSlug, recipes } = useRecipes();
@@ -92,7 +92,7 @@ const RecipeModal = ({ isMobile }) => {
     share({ title: selectedRecipe.name, slug: selectedRecipe.slug });
   }
 
-  function closeModal() {
+  function onCloseModal() {
     return history.push(`${process.env.PUBLIC_URL}/`);
   }
 
@@ -100,9 +100,12 @@ const RecipeModal = ({ isMobile }) => {
     <Modal
       {...boxProps}
       style={{ top: 0 }}
-      icon="file_text"
+      icon="file_text_16x16_4bit"
       title={selectedRecipe.name}
-      closeModal={closeModal}
+      closeModal={() => {
+        onCloseModal();
+        closeModal();
+      }}
       buttons={[
         ...(navigator.share !== undefined
           ? [
@@ -117,7 +120,9 @@ const RecipeModal = ({ isMobile }) => {
     >
       <RecipeWrapper
         style={{
-          height: boxProps.height - 70,
+          height: Number.isNaN(boxProps.height)
+            ? boxProps.height - 70
+            : boxProps.height,
         }}
       >
         <Fieldset legend={ingredientsTitle}>
@@ -159,7 +164,7 @@ const RecipeModal = ({ isMobile }) => {
           <Frame boxShadow="in" p={1} my={8} mx={2} overflowY="auto">
             <ImgGrid>
               {selectedRecipe.images.map((i) => (
-                <Zoom>
+                <Zoom key={i}>
                   <GridImage driveId={i} key={i} role="img" />
                 </Zoom>
               ))}

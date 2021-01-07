@@ -29,7 +29,7 @@ const Recipe = ({ name, slug, ...rest }) => {
       onClick={() => history.push(`${process.env.PUBLIC_URL}/${slug}`)}
       {...rest}
     >
-      <Icon name="file_text" style={{ marginBottom: 4 }} />
+      <Icon name="file_text_32x32_4bit" style={{ marginBottom: 4 }} />
       <Name>{`${name}.txt`}</Name>
     </StyledRecipe>
   );

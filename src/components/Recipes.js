@@ -40,7 +40,7 @@ const Recipes = ({
   return (
     <Modal
       title={`${Object.keys(recipes).length} recipes`}
-      icon="windows_explorer"
+      icon="windows_explorer_16x16_4bit"
       style={{
         marginLeft: 20,
       }}

@@ -44,7 +44,7 @@ const IngredientsModal = ({
             >
               <Checkbox
                 checked={checked}
-                onClick={() => {
+                onChange={() => {
                   const changedIngredients = allIngredients.map((i) =>
                     i.name === name ? { name, checked: !i.checked } : i,
                   );
