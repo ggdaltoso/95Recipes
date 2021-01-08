@@ -5,7 +5,7 @@
   "background_color": "#55aaaa",
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "/",
+  "scope": "https://95recipes.ggdaltoso.dev",
   "start_url": "/",
   "icons": [
     {
