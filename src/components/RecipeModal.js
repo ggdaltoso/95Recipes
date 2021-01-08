@@ -120,9 +120,7 @@ const RecipeModal = ({ isMobile, closeModal }) => {
     >
       <RecipeWrapper
         style={{
-          height: Number.isNaN(boxProps.height)
-            ? boxProps.height - 70
-            : boxProps.height,
+          height: boxProps.height - 70,
         }}
       >
         <Fieldset legend={ingredientsTitle}>
