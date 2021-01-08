@@ -115,7 +115,7 @@ const RecipeModal = ({ isMobile, closeModal }) => {
               },
             ]
           : []),
-        { value: 'Close', onClick: closeModal },
+        { value: 'Close', onClick: onCloseModal },
       ]}
     >
       <RecipeWrapper

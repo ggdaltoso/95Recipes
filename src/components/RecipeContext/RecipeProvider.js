@@ -107,13 +107,14 @@ const RecipeProvider = ({ children }) => {
   );
 
   useEffect(() => {
+    setAlertData({
+      message: '95 Recipes has been saved for offline use.',
+      type: 'info',
+      title: 'Offile usage',
+      closeAlert: () => setAlertData(undefined),
+      buttons: [{ value: 'OK', onClick: () => setAlertData(undefined) }],
+    });
     if (isServiceWorkerInitialized) {
-      setAlertData({
-        message: '95 Recipes has been saved for offline use.',
-        type: 'info',
-        title: 'Offile usage',
-        closeAlert: () => setAlertData(undefined),
-      });
     }
   }, [isServiceWorkerInitialized]);
 
@@ -138,6 +139,7 @@ const RecipeProvider = ({ children }) => {
         type: 'warning',
         title: 'Update',
         closeAlert: () => updateServiceWorker(),
+        buttons: [{ value: 'Update', onClick: () => updateServiceWorker() }],
       });
     }
   }, [isServiceWorkerUpdated, serviceWorkerRegistration.waiting]);
