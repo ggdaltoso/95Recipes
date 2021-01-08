@@ -20,7 +20,7 @@ async function share({ title, slug }) {
   await navigator.share({
     title: '95Recipes',
     text: `Confira a receita de ${title}\n`,
-    url: `https://ggdaltoso.dev/95Recipes/${slug}/`,
+    url: `https://95recipes.ggdaltoso.dev/#/${slug}/`,
   });
 }
 
