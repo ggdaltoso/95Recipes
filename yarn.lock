@@ -1698,10 +1698,10 @@
     clippyjs "^0.0.3"
     jquery "^3.5.1"
 
-"@react95/core@^2.13.3":
-  version "2.13.3"
-  resolved "https://registry.yarnpkg.com/@react95/core/-/core-2.13.3.tgz#88ce8c8324ef6d34d1cca24d8d79a384f54ed061"
-  integrity sha512-ES511GRy88oueTWDFoip4lRromfnxyd5r+IpeuRVxRPO8580Znq8cSgIHgp3eirpAqEGhboIDRfMlioAapD36w==
+"@react95/core@latest":
+  version "2.13.4"
+  resolved "https://registry.yarnpkg.com/@react95/core/-/core-2.13.4.tgz#70643ed065cdf8a5a65dc1a8d6c3aa8c90414a21"
+  integrity sha512-dlOikRdjuNFpUfyVtoRf2EQcdmGxzsYrrCm+ZQhDZhdI/bP3dllP98dgavdEudeGto1OtOtVGenM4Argj+KBMA==
   dependencies:
     "@react95/clippy" "^0.1.1"
     "@react95/icons" "^0.5.2"
@@ -1720,7 +1720,7 @@
     ts-loader "^8.0.2"
     typescript "^3.9.7"
 
-"@react95/icons@^0.5.2":
+"@react95/icons@^0.5.2", "@react95/icons@latest":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@react95/icons/-/icons-0.5.2.tgz#1e1dc7c049255d5e2ddb900da1e3128b0d0bd575"
   integrity sha512-IqBbD16XccevUeXIHs7isPxBqBWxjmnKau9k1rpyBuyXSvvswo53kBwc/wfdvJf3RpKptx9x/RYpFyGJAhRgkA==
