@@ -1,11 +1,12 @@
 {
   "name": "95Recipes",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://95recipes.ggdaltoso.dev",
   "private": true,
   "dependencies": {
     "@react95/core": "latest",
     "@react95/icons": "latest",
+    "@semantic-release/git": "^9.0.0",
     "@testing-library/jest-dom": "^5.9.0",
     "@testing-library/react": "^10.0.4",
     "@testing-library/user-event": "^10.4.0",
@@ -73,6 +74,7 @@
       "@semantic-release/changelog",
       "@semantic-release/npm",
       "@semantic-release/github",
+      "@semantic-release/git",
       [
         "@semantic-release/exec",
         {
