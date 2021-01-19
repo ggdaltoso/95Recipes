@@ -31,3 +31,7 @@ jobs:
         run: yarn semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIT_AUTHOR_NAME: ggdaltoso
+          GIT_COMMITTER_NAME: ggdaltoso
+          GIT_AUTHOR_EMAIL: ggdaltoso@gmail.com
+          GIT_COMMITTER_EMAIL: ggdaltoso@gmail.com
