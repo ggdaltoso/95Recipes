@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/ggdaltoso/95Recipes/compare/v1.2.0...v1.2.1) (2021-01-19)
+
+
+### Bug Fixes
+
+* **ci:** add @semantic-release/git to push package.json version to github ([e198518](https://github.com/ggdaltoso/95Recipes/commit/e1985185f45787366088d62bfd878fa12309e7c0))
+
 # 1.1.0 (2021-01-19)
 
 ### Bug Fixes
