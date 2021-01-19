@@ -27,7 +27,7 @@ jobs:
         run: yarn build
         env:
           CI: true
-      - name: Deploy to gh-pages
-        run: yarn deploy
+      - name: Publish
+        run: yarn semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
