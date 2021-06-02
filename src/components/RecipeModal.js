@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@xstyled/styled-components';
 import { Frame, Fieldset, Modal } from '@react95/core';
+import { FileText } from '@react95/icons';
 import { useParams, useHistory } from 'react-router-dom';
 import Zoom from 'react-medium-image-zoom';
 
@@ -100,7 +101,7 @@ const RecipeModal = ({ isMobile, closeModal }) => {
     <Modal
       {...boxProps}
       style={{ top: 0 }}
-      icon="file_text_16x16_4bit"
+      icon={<FileText variant="16x16_4" />}
       title={selectedRecipe.name}
       closeModal={() => {
         onCloseModal();

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Fieldset, Checkbox } from '@react95/core';
+import { BatExec } from '@react95/icons';
 
 const IngredientsModal = ({
   allIngredients,
@@ -8,15 +9,15 @@ const IngredientsModal = ({
   isMobile,
 }) => {
   const boxProps = {
-    width: isMobile ? window.innerWidth : undefined,
-    height: isMobile ? window.innerHeight - 30 : 'auto',
+    width: isMobile ? window.innerWidth : 500,
+    height: window.innerHeight - (isMobile ? 30 : 130),
   };
 
   return (
     <Modal
       {...boxProps}
       style={{ top: 0 }}
-      icon="bat_exec"
+      icon={<BatExec />}
       title="Filter"
       closeModal={() => toggleFilterModal(false)}
       buttons={[{ value: 'Filter', onClick: () => toggleFilterModal(false) }]}

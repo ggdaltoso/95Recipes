@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '@react95/core';
+import { FileText } from '@react95/icons';
 import styled from '@xstyled/styled-components';
 import { useHistory } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ const Recipe = ({ name, slug, ...rest }) => {
       onClick={() => history.push(`${process.env.PUBLIC_URL}/${slug}`)}
       {...rest}
     >
-      <Icon name="file_text_32x32_4bit" style={{ marginBottom: 4 }} />
+      <FileText variant="32x32_4" style={{ marginBottom: 4 }} />
       <Name>{`${name}.txt`}</Name>
     </StyledRecipe>
   );
