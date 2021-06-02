@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@xstyled/styled-components';
 import { Frame, Modal, List } from '@react95/core';
+import { WindowsExplorer } from '@react95/icons';
 
 import Recipe from './Recipe';
 
@@ -40,7 +41,7 @@ const Recipes = ({
   return (
     <Modal
       title={`${Object.keys(recipes).length} recipes`}
-      icon="windows_explorer_16x16_4bit"
+      icon={<WindowsExplorer variant="16x16_4" />}
       style={{
         marginLeft: 20,
       }}

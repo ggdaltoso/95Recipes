@@ -1,19 +1,7 @@
 import React from 'react';
 import { List } from '@react95/core';
 import styled from '@xstyled/styled-components';
-
-const ListItem = styled(List.Item)`
-  ${({ smallIcon }) =>
-    smallIcon
-      ? `
-  i {
-    padding: 4px;
-    background-origin: content-box;
-    flex-shrink: 0;
-  }
-  `
-      : ''}
-`;
+import { Computer3, FileFind, FilePen, FolderFile } from '@react95/icons';
 
 const Link = styled.a.attrs({
   target: '_blank',
@@ -28,23 +16,26 @@ const Link = styled.a.attrs({
 
 const TaskList = ({ spreadsheetID, onUpdate }) => (
   <List>
-    <ListItem icon="file_find_32x32_4bit" onClick={onUpdate}>
+    <List.Item icon={<FileFind variant="32x32_4" />} onClick={onUpdate}>
       Update
-    </ListItem>
-    <ListItem icon="folder_file_32x32_4bit">
+    </List.Item>
+    <List.Item icon={<FolderFile variant="32x32_4" />}>
       <Link
         href={`https://docs.google.com/spreadsheets/d/${spreadsheetID}/edit?usp=sharing`}
       >
         Spreadsheet
       </Link>
-    </ListItem>
+    </List.Item>
     <List.Divider />
-    <ListItem smallIcon icon="file_pen_32x32_4bit" onClick={onUpdate}>
+    <List.Item
+      icon={<FilePen variant="32x32_4" style={{ padding: 4 }} />}
+      onClick={onUpdate}
+    >
       <Link href="https://ggdaltoso.dev">My Blog</Link>
-    </ListItem>
-    <ListItem icon="computer_3_32x32_4bit">
+    </List.Item>
+    <List.Item icon={<Computer3 variant="32x32_4" />}>
       <Link href="https://github.com/ggdaltoso/95Recipes">Github</Link>
-    </ListItem>
+    </List.Item>
   </List>
 );
 

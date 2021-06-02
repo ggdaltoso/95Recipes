@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from '@xstyled/styled-components';
 import { TaskBar } from '@react95/core';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import 'react-medium-image-zoom/dist/styles.css';
-import '@react95/icons/icons.css';
 
 import { Recipes, IngredientsModal, RecipeModal, TaskList } from './components';
 import { useRecipes } from './components/RecipeContext';
