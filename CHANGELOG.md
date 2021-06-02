@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/ggdaltoso/95Recipes/compare/v1.2.1...v1.2.2) (2021-06-02)
+
+
+### Bug Fixes
+
+* **dps:** remove [@react-app-rewired](https://github.com/react-app-rewired) ([69c5fb0](https://github.com/ggdaltoso/95Recipes/commit/69c5fb04515b543fb4ac609957a0cac2815851db))
+
 ## [1.2.1](https://github.com/ggdaltoso/95Recipes/compare/v1.2.0...v1.2.1) (2021-01-19)
 
 
