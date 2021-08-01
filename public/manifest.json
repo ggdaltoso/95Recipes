@@ -5,6 +5,7 @@
   "background_color": "#55aaaa",
   "display": "standalone",
   "orientation": "portrait",
+  "description": "Consulte as mais deliciosas receitas. Tudo sem glútem e com muito amor!",
   "start_url": "/",
   "icons": [
     {
