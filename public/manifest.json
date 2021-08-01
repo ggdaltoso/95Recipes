@@ -48,5 +48,26 @@
       "type": "image/png"
     }
   ],
+  "screenshots": [
+    {
+      "src": "images/screenshots/home.webp",
+      "sizes": "1080 × 1920",
+      "label": "Consulte as mais deliciosas receitas",
+      "type": "image/webp"
+    },
+    {
+      "src": "images/screenshots/full_recipe.webp",
+      "sizes": "1080 × 1920",
+      "label": "Veja os ingredientes e como fazer",
+      "type": "image/webp"
+    },
+    {
+      "src": "images/screenshots/picture.webp",
+      "sizes": "1080 × 1920",
+      "platform": "windows",
+      "label": "Confira o resultado final",
+      "type": "image/webp"
+    }
+  ],
   "splash_pages": null
 }
