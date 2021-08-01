@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
+
 import configureStore from './store';
 import { SW_INIT, SW_UPDATE } from './types';
 import { RecipeProvider } from './components/RecipeContext';
@@ -23,7 +25,9 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-serviceWorker.register({
+reportWebVitals();
+
+serviceWorkerRegistration.register({
   onSuccess: () => store.dispatch({ type: SW_INIT }),
   onUpdate: (registration) =>
     store.dispatch({ type: SW_UPDATE, payload: registration }),
