@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ggdaltoso/95Recipes/compare/v1.2.2...v1.3.0) (2021-08-01)
+
+
+### Features
+
+* **manifest:** update manifest to have screenshots (for PWA stores) ([6fbe456](https://github.com/ggdaltoso/95Recipes/commit/6fbe4567999d59be658b64aed7c20390a6e2d38d))
+
 ## [1.2.2](https://github.com/ggdaltoso/95Recipes/compare/v1.2.1...v1.2.2) (2021-06-02)
 
 
