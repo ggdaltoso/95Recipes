@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/ggdaltoso/95Recipes/compare/v1.4.0...v1.5.0) (2021-08-01)
+
+
+### Bug Fixes
+
+* **PWA:** updating screenshot suffixes ([aea0079](https://github.com/ggdaltoso/95Recipes/commit/aea00798ae9db9672d75e8f80380226922aeb989))
+
+
+### Features
+
+* **PWA:** update PWA description and add more beautifull screenshots ([7d7ecb8](https://github.com/ggdaltoso/95Recipes/commit/7d7ecb886ca913ebe0f76b0f188c8e302c3c9a81))
+
 # [1.4.0](https://github.com/ggdaltoso/95Recipes/compare/v1.3.0...v1.4.0) (2021-08-01)
 
 
