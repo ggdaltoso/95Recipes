@@ -5,6 +5,7 @@
   "background_color": "#55aaaa",
   "display": "standalone",
   "orientation": "portrait",
+  "description": "Consulte as mais deliciosas receitas. Tudo sem glútem e com muito amor!",
   "start_url": "/",
   "icons": [
     {
@@ -50,23 +51,23 @@
   ],
   "screenshots": [
     {
-      "src": "images/screenshots/home.webp",
+      "src": "images/screenshots/home.png",
       "sizes": "1080 × 1920",
       "label": "Consulte as mais deliciosas receitas",
-      "type": "image/webp"
+      "type": "image/png"
     },
     {
-      "src": "images/screenshots/full_recipe.webp",
+      "src": "images/screenshots/full_recipe.png",
       "sizes": "1080 × 1920",
       "label": "Veja os ingredientes e como fazer",
-      "type": "image/webp"
+      "type": "image/png"
     },
     {
-      "src": "images/screenshots/picture.webp",
+      "src": "images/screenshots/picture.png",
       "sizes": "1080 × 1920",
       "platform": "windows",
       "label": "Confira o resultado final",
-      "type": "image/webp"
+      "type": "image/png"
     }
   ],
   "splash_pages": null
