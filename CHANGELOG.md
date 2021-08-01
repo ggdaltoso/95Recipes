@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/ggdaltoso/95Recipes/compare/v1.3.0...v1.4.0) (2021-08-01)
+
+
+### Features
+
+* **sw:** update SW stuffs ([8981a4d](https://github.com/ggdaltoso/95Recipes/commit/8981a4dfb6e4ca79cb4ac46a0fcd97cc82296fcb))
+
 # [1.3.0](https://github.com/ggdaltoso/95Recipes/compare/v1.2.2...v1.3.0) (2021-08-01)
 
 
