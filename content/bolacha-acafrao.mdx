@@ -1,0 +1,88 @@
+---
+title: Bolacha de Açafrão
+description: Bolachinas tops demais!
+icon:
+  name: FileText
+  variant: 32x32_4
+---
+
+import Recipe from '../src/components/Recipe';
+import { units } from '../src/utils/measure';
+
+export const ingredients = [
+  {
+    measure: {
+      value: '½',
+      unit: units.XICARAS,
+    },
+    ingredient: 'Farinha de aveia',
+  },
+  {
+    measure: {
+      value: '½',
+      unit: units.XICARAS,
+    },
+    ingredient: 'Farinha de arroz',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.COLHER_DE_SOPA,
+    },
+    ingredient: 'Gergelim',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.COLHER_DE_SOPA,
+    },
+    ingredient: 'Linhaça',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.COLHER_DE_SOPA,
+    },
+    ingredient: 'Chia',
+  },
+  {
+    measure: {
+      value: '½',
+      unit: units.COLHER_DE_CHA,
+    },
+    ingredient: 'Sal',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.COLHER_DE_CHA,
+    },
+    ingredient: 'Açafrão',
+  },
+  {
+    measure: {
+      value: '4',
+      unit: units.COLHER_DE_SOPA,
+    },
+    ingredient: 'Azeite',
+  },
+  {
+    measure: {
+      value: '½',
+      unit: units.XICARAS,
+    },
+    ingredient: 'Água',
+    observation: 'morna',
+  },
+];
+
+export const preparation = [
+  'Preaqueça o forno a 200°C',
+  'Misture todos os ingredientes secos em uma vasilha',
+  'Acrescente o azeite e misture',
+  'Coloque aos poucos a água até que tenha a textura desejada',
+  'Use a criatividade para criar as bolachas como quiser',
+  'Coloque as bolachas em uma assadeira e depois leve ao forno por 30 min',
+];
+
+<Recipe ingredients={ingredients} preparation={preparation} />
