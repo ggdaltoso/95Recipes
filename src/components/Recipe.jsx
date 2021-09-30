@@ -39,7 +39,6 @@ const Measure = ({ unit, value }) => (
 
 const Recipe = ({ ingredients = [], preparation = [] }) => {
   const ref = useRef(null);
-  console.log(ingredients);
 
   useEffect(() => {
     // I'm not proud of this
