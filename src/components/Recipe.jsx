@@ -1,6 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Fieldset, Frame } from '@react95/core';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
+
+const ImgGrid = styled.div`
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  img {
+    max-width: 100%;
+    min-height: 100%;
+    display: block;
+  }
+`;
 
 const RecipeWrapper = styled(Frame)`
   overflow-y: auto;
@@ -37,7 +51,7 @@ const Measure = ({ unit, value }) => (
   </>
 );
 
-const Recipe = ({ ingredients = [], preparation = [] }) => {
+const Recipe = ({ ingredients = [], preparation = [], images = [] }) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -74,6 +88,18 @@ const Recipe = ({ ingredients = [], preparation = [] }) => {
             ))}
           </ol>
         </Fieldset>
+      )}
+
+      {images.length > 0 && (
+        <Frame boxShadow="in" p={1} my={8} mx={2}>
+          <ImgGrid>
+            {images.map((i, index) => (
+              <Zoom key={i} zoomMargin={10}>
+                <img src={i} alt={`Zoomed image ${index}`} width="100%" />
+              </Zoom>
+            ))}
+          </ImgGrid>
+        </Frame>
       )}
     </RecipeWrapper>
   );

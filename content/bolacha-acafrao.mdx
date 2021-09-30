@@ -9,6 +9,12 @@ icon:
 import Recipe from '../src/components/Recipe';
 import { units } from '../src/utils/measure';
 
+import img1 from '../static/recipes/bolacha_acafrao/1.jpg';
+import img2 from '../static/recipes/bolacha_acafrao/2.jpg';
+import img3 from '../static/recipes/bolacha_acafrao/3.jpg';
+import img4 from '../static/recipes/bolacha_acafrao/4.jpg';
+import img5 from '../static/recipes/bolacha_acafrao/5.jpg';
+
 export const ingredients = [
   {
     measure: {
@@ -85,4 +91,8 @@ export const preparation = [
   'Coloque as bolachas em uma assadeira e depois leve ao forno por 30 min',
 ];
 
-<Recipe ingredients={ingredients} preparation={preparation} />
+<Recipe
+  ingredients={ingredients}
+  preparation={preparation}
+  images={[img1, img2, img3, img4, img5]}
+/>
