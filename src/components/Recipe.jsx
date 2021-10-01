@@ -37,7 +37,7 @@ const RecipeWrapper = styled(Frame)`
 const Value = styled(Frame).attrs({
   as: 'span',
   boxShadow: 'none',
-  width: 25,
+  width: 16,
   display: 'inline-block',
   marginRight: 4,
 })`
