@@ -1,0 +1,38 @@
+---
+title: Enchiladas de Pepino
+description: Incrível como fica
+icon:
+  name: FileText
+  variant: 32x32_4
+---
+
+import Recipe from '../src/components/Recipe';
+import { units } from '../src/utils/measure';
+
+import pep1 from '../static/recipes/enchiladas-de-pepino/1.jpg';
+import pep2 from '../static/recipes/enchiladas-de-pepino/2.jpg';
+import pep3 from '../static/recipes/enchiladas-de-pepino/3.jpg';
+import pep4 from '../static/recipes/enchiladas-de-pepino/4.jpg';
+
+export const ingredients = [
+  {
+    measure: {
+      value: '2',
+      unit: units.INTEIROS,
+    },
+    ingredient: 'Pepino',
+  },
+];
+
+export const preparation = [
+  'Cortar finas tiras de pepino',
+  'Enrolar com um recheio à gosto',
+  'Assar em forno preaquecido à 190°C durante 15’',
+  'Pode adicionar molho de tomate',
+];
+
+<Recipe
+  ingredients={ingredients}
+  preparation={preparation}
+  images={[pep1, pep2, pep3, pep4]}
+/>
