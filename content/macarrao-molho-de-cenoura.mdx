@@ -1,0 +1,106 @@
+---
+title: Macarrão ao molho de cenoura
+description: Você não dá nada pra esse cara
+icon:
+  name: FileText
+  variant: 32x32_4
+---
+
+import Recipe from '../src/components/Recipe';
+import { units } from '../src/utils/measure';
+
+import mac1 from '../static/recipes/macarrao-molho-de-cenoura/1.jpg';
+import mac2 from '../static/recipes/macarrao-molho-de-cenoura/2.jpg';
+import mac3 from '../static/recipes/macarrao-molho-de-cenoura/3.jpg';
+import mac4 from '../static/recipes/macarrao-molho-de-cenoura/4.jpg';
+import mac5 from '../static/recipes/macarrao-molho-de-cenoura/5.jpg';
+import mac6 from '../static/recipes/macarrao-molho-de-cenoura/6.jpg';
+import mac7 from '../static/recipes/macarrao-molho-de-cenoura/7.jpg';
+import mac8 from '../static/recipes/macarrao-molho-de-cenoura/8.jpg';
+import mac9 from '../static/recipes/macarrao-molho-de-cenoura/9.jpg';
+import mac10 from '../static/recipes/macarrao-molho-de-cenoura/10.jpg';
+
+export const ingredients = [
+  {
+    measure: {
+      value: '3',
+      unit: units.INTEIROS,
+    },
+    ingredient: 'Cenoura',
+  },
+  {
+    measure: {
+      value: '2',
+      unit: units.INTEIROS,
+    },
+    ingredient: 'Batata',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.INTEIROS,
+    },
+    ingredient: 'Cebola',
+    observation: 'média, picada bem pequena',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.INTEIROS,
+    },
+    ingredient: 'Alho',
+    observation: 'dente, picado',
+  },
+  {
+    measure: {
+      value: '½',
+      unit: units.XICARAS,
+    },
+    ingredient: 'Castanha de Caju',
+  },
+  {
+    measure: {
+      value: '800',
+      unit: units.ML,
+    },
+    ingredient: 'Água',
+    observation: 'ou mais',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.COLHER_DE_CHA,
+    },
+    ingredient: 'Páprica',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.COLHER_DE_SOPA,
+    },
+    ingredient: 'Levedura Nutricional',
+    observation: 'pode ser a gosto tbm',
+  },
+  {
+    ingredient: 'Sal',
+  },
+];
+
+export const preparation = [
+  'Antes de começar, preaqueça o forno a 200° - 180° C e unte uma forma de pão com um pouco de manteiga',
+  'Mistrute o óleo de coco com o açúcar mascavo usando uma batedeira',
+  'Adicione os ovos, um a um, e misture tudo até ficar homogêneo (tigela 1)',
+  'Amasse as bananas com o mel em um recipiente separado e depois adicione essa mistura na tigela 1',
+  'Em uma tigela separada, adicione: a farinha, o bicarbonato e sódio, a canela e o sal. Misture tudo (tigela 2)',
+  'Coloque o conteúdo da tigela 2 na tigela 1 e misture bem',
+  'Coloque as castanhas cortadas e misture com uma espátula',
+  'Despeje a massa na forma untada e espalhe a massa com a ajuda de uma espátula',
+  'Coloque no forno por aproximadamente 50 min',
+  'O pão estará pronto quando você inserir um palito de dente no centro e ele sair limpo. Se sair sujo, continue o cozimento do pão e verifique novamente a cada 5 minutos até o palito de dente sair sem nada',
+];
+
+<Recipe
+  ingredients={ingredients}
+  preparation={preparation}
+  images={[mac1, mac2, mac3, mac4, mac5, mac6, mac7, mac8, mac9, mac10]}
+/>
