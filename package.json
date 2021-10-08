@@ -23,7 +23,6 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
-    "predeploy": "yarn build",
     "deploy": "gh-pages -d public",
     "semantic-release": "semantic-release",
     "commit": "git-cz"
