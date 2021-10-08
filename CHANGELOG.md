@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/ggdaltoso/95Recipes/compare/v1.7.0...v1.7.1) (2021-10-08)
+
+
+### Bug Fixes
+
+* **seo:** trying to improve image on SEO ([e92171d](https://github.com/ggdaltoso/95Recipes/commit/e92171d81d5d84eac9f9a3b02a963d092c3f5600))
+
 # [1.7.0](https://github.com/ggdaltoso/95Recipes/compare/v1.6.0...v1.7.0) (2021-10-08)
 
 
