@@ -13,6 +13,8 @@ const ImgGrid = styled.div`
     max-width: 100%;
     min-height: 100%;
     display: block;
+    object-position: center;
+    object-fit: cover;
   }
 `;
 
@@ -64,7 +66,7 @@ const Recipe = ({ ingredients = [], preparation = [], images = [] }) => {
       {ingredients.length > 0 && (
         <Fieldset legend="Ingredientes">
           {ingredients.map(({ measure, ingredient, observation }) => (
-            <p>
+            <p key={ingredient}>
               <Measure {...measure} />
               <span> {ingredient}</span>
               {observation && <small> - ({observation})</small>}
