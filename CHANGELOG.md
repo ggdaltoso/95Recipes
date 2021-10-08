@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/ggdaltoso/95Recipes/compare/v1.6.0...v1.7.0) (2021-10-08)
+
+
+### Features
+
+* **seo:** add SEO image recipes ([9e0f16a](https://github.com/ggdaltoso/95Recipes/commit/9e0f16aa09a0a9c41091cbcc4b6f859b9d3819af))
+
 # [1.6.0](https://github.com/ggdaltoso/95Recipes/compare/v1.5.0...v1.6.0) (2021-10-08)
 
 
