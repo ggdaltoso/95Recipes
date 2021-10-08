@@ -37,7 +37,7 @@ const RecipeWrapper = styled(Frame)`
 const Value = styled(Frame).attrs({
   as: 'span',
   boxShadow: 'none',
-  width: 16,
+  width: 26,
   display: 'inline-block',
   marginRight: 4,
 })`
@@ -64,10 +64,11 @@ const Recipe = ({ ingredients = [], preparation = [], images = [] }) => {
       {ingredients.length > 0 && (
         <Fieldset legend="Ingredientes">
           {ingredients.map(({ measure, ingredient, observation }) => (
-            <p key={ingredient}>
-              {measure && <Measure {...measure} />}
+            <p>
+              <Measure {...measure} />
               <span> {ingredient}</span>
               {observation && <small> - ({observation})</small>}
+              {!measure && <small> - (a gosto)</small>}
             </p>
           ))}
         </Fieldset>
@@ -80,7 +81,7 @@ const Recipe = ({ ingredients = [], preparation = [], images = [] }) => {
           <ol
             style={{
               marginBottom: 0,
-              paddingLeft: 18,
+              paddingLeft: 28,
             }}
           >
             {preparation.map((step) => (

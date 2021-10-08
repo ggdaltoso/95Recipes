@@ -1,6 +1,6 @@
 ---
-title: Pão de banana
-description: Vai bem com um cafézinho...
+title: Macarrão ao molho de cenoura
+description: Você não dá nada pra esse cara
 icon:
   name: FileText
   variant: 32x32_4
@@ -9,99 +9,80 @@ icon:
 import Recipe from '../src/components/Recipe';
 import { units } from '../src/utils/measure';
 
-import pao1 from '../static/recipes/pao-de-banana/1.jpg';
-import pao2 from '../static/recipes/pao-de-banana/2.jpg';
-import pao3 from '../static/recipes/pao-de-banana/3.jpg';
-import pao4 from '../static/recipes/pao-de-banana/4.jpg';
+import mac1 from '../static/recipes/macarrao-molho-de-cenoura/1.jpg';
+import mac2 from '../static/recipes/macarrao-molho-de-cenoura/2.jpg';
+import mac3 from '../static/recipes/macarrao-molho-de-cenoura/3.jpg';
+import mac4 from '../static/recipes/macarrao-molho-de-cenoura/4.jpg';
+import mac5 from '../static/recipes/macarrao-molho-de-cenoura/5.jpg';
+import mac6 from '../static/recipes/macarrao-molho-de-cenoura/6.jpg';
+import mac7 from '../static/recipes/macarrao-molho-de-cenoura/7.jpg';
+import mac8 from '../static/recipes/macarrao-molho-de-cenoura/8.jpg';
+import mac9 from '../static/recipes/macarrao-molho-de-cenoura/9.jpg';
+import mac10 from '../static/recipes/macarrao-molho-de-cenoura/10.jpg';
 
 export const ingredients = [
-  {
-    measure: {
-      value: '2',
-      unit: units.XICARAS,
-    },
-    ingredient: 'Farinha de arroz',
-  },
   {
     measure: {
       value: '3',
       unit: units.INTEIROS,
     },
-    ingredient: 'Banana',
-    observation: 'bem maduras',
+    ingredient: 'Cenoura',
+  },
+  {
+    measure: {
+      value: '2',
+      unit: units.INTEIROS,
+    },
+    ingredient: 'Batata',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.INTEIROS,
+    },
+    ingredient: 'Cebola',
+    observation: 'média, picada bem pequena',
+  },
+  {
+    measure: {
+      value: '1',
+      unit: units.INTEIROS,
+    },
+    ingredient: 'Alho',
+    observation: 'dente, picado',
   },
   {
     measure: {
       value: '½',
       unit: units.XICARAS,
     },
-    ingredient: 'Óleo de coco',
-    observation: 'ou manteiga sem sal',
+    ingredient: 'Castanha de Caju',
   },
   {
     measure: {
-      value: '2',
-      unit: units.INTEIROS,
+      value: '800',
+      unit: units.ML,
     },
-    ingredient: 'Ovos',
+    ingredient: 'Água',
+    observation: 'ou mais',
   },
   {
     measure: {
       value: '1',
       unit: units.COLHER_DE_CHA,
     },
-    ingredient: 'Baunilha',
-  },
-  {
-    measure: {
-      value: '½',
-      unit: units.XICARAS,
-    },
-    ingredient: 'Açúcar mascavo',
-  },
-  {
-    measure: {
-      value: '¼',
-      unit: units.XICARAS,
-    },
-    ingredient: 'Mel',
+    ingredient: 'Páprica',
   },
   {
     measure: {
       value: '1',
       unit: units.COLHER_DE_SOPA,
     },
-    ingredient: 'Fermento químico',
+    ingredient: 'Levedura Nutricional',
+    observation: 'pode ser a gosto tbm',
   },
   {
-    measure: {
-      value: '½',
-      unit: units.COLHER_DE_CHA,
-    },
     ingredient: 'Sal',
-  },
-  {
-    measure: {
-      value: '¾',
-      unit: units.COLHER_DE_CHA,
-    },
-    ingredient: 'Canela',
-  },
-  {
-    measure: {
-      value: '½',
-      unit: units.XICARAS,
-    },
-    ingredient: 'Castanha ou nibs de chocolate',
-    observation: 'triturado',
-  },
-  {
-    measure: {
-      value: '½',
-      unit: units.XICARAS,
-    },
-    ingredient: 'Água',
-    observation: 'morna',
   },
 ];
 
@@ -121,5 +102,5 @@ export const preparation = [
 <Recipe
   ingredients={ingredients}
   preparation={preparation}
-  images={[pao1, pao2, pao3, pao4]}
+  images={[mac1, mac2, mac3, mac4, mac5, mac6, mac7, mac8, mac9, mac10]}
 />
