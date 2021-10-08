@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: '95 Recipes',
     description: 'Recipes in a vintage way',
-    siteUrl: 'https://95recipes.ggdaltoso.dev/',
+    siteUrl: 'https://95recipes.ggdaltoso.dev',
   },
   plugins: [
     {
