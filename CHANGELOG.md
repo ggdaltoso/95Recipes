@@ -1,3 +1,22 @@
+# [1.6.0](https://github.com/ggdaltoso/95Recipes/compare/v1.5.0...v1.6.0) (2021-10-08)
+
+
+### Features
+
+* **gatsby:** offline-optimization ([5cc032c](https://github.com/ggdaltoso/95Recipes/commit/5cc032c86d1c4cd151855cb35ff3b6c58f488cee))
+* **gatsby:** start using [@react95](https://github.com/react95) gatsby-theme ([5a0e0e5](https://github.com/ggdaltoso/95Recipes/commit/5a0e0e58d74a2852ef1956859f4cb833107d19e0))
+* **recipe:** add enchiladas de pepino! ([2ba37e8](https://github.com/ggdaltoso/95Recipes/commit/2ba37e89772e935db2ffb45a548e763a0064d864))
+* **recipe:** add images ([edadd21](https://github.com/ggdaltoso/95Recipes/commit/edadd210e7ee62014754568029de11084b1b7cf0))
+* **recipe:** add pao de banana! ([93030f5](https://github.com/ggdaltoso/95Recipes/commit/93030f5787a911be7b731959c8b6756f2be5b3f1))
+* **recipe:** creating a valid content file ([4f2e795](https://github.com/ggdaltoso/95Recipes/commit/4f2e795cd720a688cf9a0926998f6cf6f6989460))
+* **recipes:** add Macarrão ao molho de cenoura ([e80523c](https://github.com/ggdaltoso/95Recipes/commit/e80523c22da13a648d2840dcf4f8029c7def7d45))
+* recreating Recipe component ([2f6b87f](https://github.com/ggdaltoso/95Recipes/commit/2f6b87fd72453a7a018adc5671159bbd57c6be74))
+
+
+### Reverts
+
+* **recipe:** removing useless console.log ([60de88d](https://github.com/ggdaltoso/95Recipes/commit/60de88da29c45a2a68ad0515289dcf8d11cf8a7c))
+
 # [1.5.0](https://github.com/ggdaltoso/95Recipes/compare/v1.4.0...v1.5.0) (2021-08-01)
 
 
