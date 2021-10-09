@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/ggdaltoso/95Recipes/compare/v1.7.1...v1.8.0) (2021-10-09)
+
+
+### Features
+
+* **seo:** add sitemap ([2a3281e](https://github.com/ggdaltoso/95Recipes/commit/2a3281e45fdca4b35955e506ae999f1ada7f99d9))
+
 ## [1.7.1](https://github.com/ggdaltoso/95Recipes/compare/v1.7.0...v1.7.1) (2021-10-08)
 
 
