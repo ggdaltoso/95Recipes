@@ -1800,10 +1800,10 @@
     styled-system "^5.1.5"
     typescript "^3.9.7"
 
-"@react95/gatsby-theme@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@react95/gatsby-theme/-/gatsby-theme-1.1.0.tgz#35f6e191b7264a0dda63709df43d2657bce94788"
-  integrity sha512-+b8wPDYIYFx0kID4OI6hYPqV5zgqNxhXa+mqp49/Em1CRaL1y6FoC7M1jX6fXFgYB1hriK1wx376ODTmUypH1w==
+"@react95/gatsby-theme@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@react95/gatsby-theme/-/gatsby-theme-1.2.0.tgz#f04699add388a52e9ef308052e2b11bb1eb7f2f4"
+  integrity sha512-lsE3AD/vnYm+YD+COT98bo3XZZlUE03bP+n6ACsk/ld022XqvW4w3CMsk0qJAQPD9JE8Fq7oMtD+bQ0LQkJ+OA==
   dependencies:
     "@mdx-js/mdx" "^1.6.22"
     "@mdx-js/react" "^1.6.22"
@@ -1811,7 +1811,7 @@
     babel-plugin-styled-components "^2.0.2"
     gatsby-plugin-mdx "^2.12.0"
     gatsby-plugin-mdx-frontmatter "^0.0.4"
-    gatsby-plugin-react-helmet "^4.13.0"
+    gatsby-plugin-react-helmet "^5.4.0"
     gatsby-plugin-styled-components "^5.4.0"
     gatsby-plugin-typescript "^4.4.0"
     gatsby-source-filesystem "^4.4.0"
@@ -6518,10 +6518,10 @@ gatsby-plugin-page-creator@^4.4.0:
     globby "^11.0.4"
     lodash "^4.17.21"
 
-gatsby-plugin-react-helmet@^4.13.0:
-  version "4.14.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-4.14.0.tgz#69fe0bd90d65356a0aa144d4e8d75d2559638514"
-  integrity sha512-IpLC0mWRNP+E0ezDBXHciVATW+mv2MCvCP3lEYtFQ8mfcm3K//MpeynouNQSPCXn9cH7fr5w0Y355Wl5w1kw1A==
+gatsby-plugin-react-helmet@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-5.4.0.tgz#8c40c8749053b65de2c3360b0451adec019c15db"
+  integrity sha512-bDJYOBk0HNaK8pKHTqr8U6CFNTRCgFvgqyrGNxHeva4sS2GKV/Rj5axRYx8ti8HXgyHMgNbaMO8SgZIKf8W5DQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
 
