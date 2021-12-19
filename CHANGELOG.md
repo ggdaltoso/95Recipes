@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/ggdaltoso/95Recipes/compare/v1.10.0...v1.11.0) (2021-12-19)
+
+
+### Features
+
+* **dps:** bumping @react95/gatsby-theme ([4274312](https://github.com/ggdaltoso/95Recipes/commit/42743122481c5baf7f3334f2eb6092b3c5cc5f97))
+
 # [1.10.0](https://github.com/ggdaltoso/95Recipes/compare/v1.9.0...v1.10.0) (2021-12-19)
 
 
