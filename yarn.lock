@@ -1800,10 +1800,10 @@
     styled-system "^5.1.5"
     typescript "^3.9.7"
 
-"@react95/gatsby-theme@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@react95/gatsby-theme/-/gatsby-theme-1.0.4.tgz#a53a3602a5b513cf568508ecc563c9890a86848a"
-  integrity sha512-9uH4huRQefsv+Hk5HWTCUuW7p17uY6o6KaRXRaHLMP3Wdx38Mo5Ypxo97f/iP722GsgUQdk+QeG2ysrycUP5Jg==
+"@react95/gatsby-theme@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@react95/gatsby-theme/-/gatsby-theme-1.1.0.tgz#35f6e191b7264a0dda63709df43d2657bce94788"
+  integrity sha512-+b8wPDYIYFx0kID4OI6hYPqV5zgqNxhXa+mqp49/Em1CRaL1y6FoC7M1jX6fXFgYB1hriK1wx376ODTmUypH1w==
   dependencies:
     "@mdx-js/mdx" "^1.6.22"
     "@mdx-js/react" "^1.6.22"
