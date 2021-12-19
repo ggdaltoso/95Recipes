@@ -9,7 +9,6 @@ const manifest = {
   start_url: '/',
   icon: 'static/images/icons/icon-512x512.png',
   cache_busting_mode: 'none',
-  splash_pages: null,
   screenshots: [
     {
       src: '/images/screenshots/home.png',
