@@ -1,3 +1,15 @@
+# [1.12.0](https://github.com/ggdaltoso/95Recipes/compare/v1.11.0...v1.12.0) (2021-12-21)
+
+
+### Bug Fixes
+
+* **build:** using browser related API only when inside browser ([8ce6a39](https://github.com/ggdaltoso/95Recipes/commit/8ce6a39ac5ca2962ac25aa5f5f6036b4e8a33b8d))
+
+
+### Features
+
+* **share:** add share button ([b6fe522](https://github.com/ggdaltoso/95Recipes/commit/b6fe522afe65f6a429fecb42df0b8b4f23bad9ed))
+
 # [1.11.0](https://github.com/ggdaltoso/95Recipes/compare/v1.10.0...v1.11.0) (2021-12-19)
 
 
