@@ -1,6 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { Fieldset, Frame } from '@react95/core';
+import { navigate } from 'gatsby';
+import { Fieldset, Frame, Modal } from '@react95/core';
+import IconRenderer from '@react95/gatsby-theme/src/components/icon-renderer';
+import { TASKBAR_HEIGHT } from '@react95/gatsby-theme/src/utils/constants';
+
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
@@ -46,6 +50,10 @@ const Value = styled(Frame).attrs({
   text-align: right;
 `;
 
+async function share(url) {
+  await navigator.share({ url });
+}
+
 const Measure = ({ unit, value }) => (
   <>
     <Value>{value}</Value>
@@ -53,7 +61,12 @@ const Measure = ({ unit, value }) => (
   </>
 );
 
-const Recipe = ({ ingredients = [], preparation = [], images = [] }) => {
+const Recipe = ({
+  ingredients = [],
+  preparation = [],
+  images = [],
+  frontmatter,
+}) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -61,50 +74,71 @@ const Recipe = ({ ingredients = [], preparation = [], images = [] }) => {
     ref.current.parentElement.style.overflow = 'auto';
   }, [ref.current]);
 
+  const { title, icon } = frontmatter;
+  const {
+    location: { href: url },
+  } = document;
+
   return (
-    <RecipeWrapper ref={ref} boxShadow="none">
-      {ingredients.length > 0 && (
-        <Fieldset legend="Ingredientes">
-          {ingredients.map(({ measure, ingredient, observation }) => (
-            <p key={ingredient}>
-              <Measure {...measure} />
-              <span> {ingredient}</span>
-              {observation && <small> - ({observation})</small>}
-              {!measure && <small> - (a gosto)</small>}
-            </p>
-          ))}
-        </Fieldset>
-      )}
-
-      <br />
-
-      {preparation.length > 0 && (
-        <Fieldset legend="Modo de preparo">
-          <ol
-            style={{
-              marginBottom: 0,
-              paddingLeft: 28,
-            }}
-          >
-            {preparation.map((step) => (
-              <li key={step}>{step}</li>
+    <Modal
+      title={title}
+      icon={<IconRenderer {...icon} />}
+      style={{
+        top: 0,
+        height: `calc(100% - ${TASKBAR_HEIGHT}px)`,
+        width: '100%',
+      }}
+      closeModal={() => navigate('/')}
+      buttons={
+        navigator.canShare({ url })
+          ? [{ value: 'Compartilhar', onClick: () => share(url) }]
+          : []
+      }
+    >
+      <RecipeWrapper boxShadow="none" ref={ref}>
+        {ingredients.length > 0 && (
+          <Fieldset legend="Ingredientes">
+            {ingredients.map(({ measure, ingredient, observation }) => (
+              <p key={ingredient}>
+                <Measure {...measure} />
+                <span> {ingredient}</span>
+                {observation && <small> - ({observation})</small>}
+                {!measure && <small> - (a gosto)</small>}
+              </p>
             ))}
-          </ol>
-        </Fieldset>
-      )}
+          </Fieldset>
+        )}
 
-      {images.length > 0 && (
-        <Frame boxShadow="in" p={1} my={8} mx={2}>
-          <ImgGrid>
-            {images.map((i, index) => (
-              <Zoom key={i} zoomMargin={10}>
-                <img src={i} alt={`Zoomed image ${index}`} width="100%" />
-              </Zoom>
-            ))}
-          </ImgGrid>
-        </Frame>
-      )}
-    </RecipeWrapper>
+        <br />
+
+        {preparation.length > 0 && (
+          <Fieldset legend="Modo de preparo">
+            <ol
+              style={{
+                marginBottom: 0,
+                paddingLeft: 28,
+              }}
+            >
+              {preparation.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </Fieldset>
+        )}
+
+        {images.length > 0 && (
+          <Frame boxShadow="in" p={1} my={8} mx={2}>
+            <ImgGrid>
+              {images.map((i, index) => (
+                <Zoom key={i} zoomMargin={10}>
+                  <img src={i} alt={`Zoomed image ${index}`} width="100%" />
+                </Zoom>
+              ))}
+            </ImgGrid>
+          </Frame>
+        )}
+      </RecipeWrapper>
+    </Modal>
   );
 };
 
