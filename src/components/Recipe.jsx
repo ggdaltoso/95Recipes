@@ -1,9 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { navigate } from 'gatsby';
 import { Fieldset, Frame, Modal } from '@react95/core';
-import IconRenderer from '@react95/gatsby-theme/src/components/icon-renderer';
-import { TASKBAR_HEIGHT } from '@react95/gatsby-theme/src/utils/constants';
+import { TASKBAR_HEIGHT, IconRenderer } from '../utils';
 
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
@@ -68,16 +67,25 @@ const Recipe = ({
   frontmatter,
 }) => {
   const ref = useRef(null);
+  const [buttons, setButtons] = useState([]);
 
   useEffect(() => {
     // I'm not proud of this
     ref.current.parentElement.style.overflow = 'auto';
   }, [ref.current]);
 
+  // ensure this code run only in browser
+  useEffect(() => {
+    const {
+      location: { href: url },
+    } = document;
+
+    if (navigator.canShare({ url })) {
+      setButtons([{ value: 'Compartilhar', onClick: () => share(url) }]);
+    }
+  }, [setButtons]);
+
   const { title, icon } = frontmatter;
-  const {
-    location: { href: url },
-  } = document;
 
   return (
     <Modal
@@ -89,11 +97,7 @@ const Recipe = ({
         width: '100%',
       }}
       closeModal={() => navigate('/')}
-      buttons={
-        navigator.canShare({ url })
-          ? [{ value: 'Compartilhar', onClick: () => share(url) }]
-          : []
-      }
+      buttons={buttons}
     >
       <RecipeWrapper boxShadow="none" ref={ref}>
         {ingredients.length > 0 && (
