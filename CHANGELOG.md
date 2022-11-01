@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/ggdaltoso/95Recipes/compare/v1.12.0...v1.12.1) (2022-11-01)
+
+
+### Bug Fixes
+
+* **recipe:** updating banana bread description ([e03faf2](https://github.com/ggdaltoso/95Recipes/commit/e03faf2ff0ac1df692c50c50c6e7d91909201406))
+
 # [1.12.0](https://github.com/ggdaltoso/95Recipes/compare/v1.11.0...v1.12.0) (2021-12-21)
 
 
