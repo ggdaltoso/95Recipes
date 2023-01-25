@@ -80,7 +80,7 @@ const Recipe = ({
       location: { href: url },
     } = document;
 
-    if (navigator.canShare({ url })) {
+    if (navigator.canShare && navigator.canShare({ url })) {
       setButtons([{ value: 'Compartilhar', onClick: () => share(url) }]);
     }
   }, [setButtons]);
