@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/ggdaltoso/95Recipes/compare/v1.12.1...v1.12.2) (2023-01-26)
+
+
+### Bug Fixes
+
+* mac user may not have `canShare` feature ([f809ed8](https://github.com/ggdaltoso/95Recipes/commit/f809ed872e9796622158137cadddc59a8a1dfc97))
+
 ## [1.12.1](https://github.com/ggdaltoso/95Recipes/compare/v1.12.0...v1.12.1) (2022-11-01)
 
 
