@@ -79,7 +79,8 @@ const Recipe = ({
     const {
       location: { href: url },
     } = document;
-
+    
+    // Mac user may not have this feature 🫠
     if (navigator.canShare && navigator.canShare({ url })) {
       setButtons([{ value: 'Compartilhar', onClick: () => share(url) }]);
     }
