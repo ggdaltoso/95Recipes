@@ -1,3 +1,10 @@
+## [1.12.3](https://github.com/ggdaltoso/95Recipes/compare/v1.12.2...v1.12.3) (2024-01-11)
+
+
+### Bug Fixes
+
+* update dependencies and fix font ([d2da412](https://github.com/ggdaltoso/95Recipes/commit/d2da412e84f49ef4a1e5b9dc693328990c4989ed))
+
 ## [1.12.2](https://github.com/ggdaltoso/95Recipes/compare/v1.12.1...v1.12.2) (2023-01-26)
 
 
