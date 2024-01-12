@@ -1,3 +1,10 @@
+## [1.12.4](https://github.com/ggdaltoso/95Recipes/compare/v1.12.3...v1.12.4) (2024-01-12)
+
+
+### Bug Fixes
+
+* update icon sizes ([3237628](https://github.com/ggdaltoso/95Recipes/commit/32376285922dd3a6430fd5f483bc05f8d178eb14))
+
 ## [1.12.3](https://github.com/ggdaltoso/95Recipes/compare/v1.12.2...v1.12.3) (2024-01-11)
 
 
