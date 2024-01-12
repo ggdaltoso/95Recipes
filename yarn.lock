@@ -2408,19 +2408,6 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@react95/core@^6.0.6":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@react95/core/-/core-6.2.0.tgz#2cd4ae421deff9b7fa6ed54f959d8f32d53b281b"
-  integrity sha512-5DslYiRIfJOZhty32TPoyNnADa05eESRdJMlp0AkyKMhjGLiQ0dvMWgD0kHyy8E5V5MBVzhCwWadvre5Gxv+rA==
-  dependencies:
-    "@react95/icons" "^2.0.8"
-    csstype "^3.0.11"
-    nanoid "^3.3.1"
-    react-draggable "^4.4.4"
-    styled-system "^5.1.5"
-    typescript "^4.6.2"
-    url-loader "^4.1.1"
-
 "@react95/core@^7.0.1":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@react95/core/-/core-7.0.1.tgz#01764282060ef9025564066d68cd5741abba9d9b"
@@ -2434,16 +2421,14 @@
     typescript "^4.6.2"
     url-loader "^4.1.1"
 
-"@react95/gatsby-theme@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@react95/gatsby-theme/-/gatsby-theme-2.2.0.tgz#20d411b17b7f9c0bde71d61b79eeba8f66e4ef60"
-  integrity sha512-LhzFYXedf9xNI2wkZUoT93qv5sPDaRHCyA0lKsDygm/6kn5UIEX8mHB3r9Zp0hVfrc1HEZ8pRI/FCSuw0duiNw==
+"@react95/gatsby-theme@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@react95/gatsby-theme/-/gatsby-theme-2.2.1.tgz#f1347ee5f46db7f6a11a41cd3e65aca8a653a3f4"
+  integrity sha512-eNiwwz+AvrkkxGpW/2arW3cjSr/zb0C5XY8P5kz6oIP3+MdYuJZ4kTqeP8B2ZWDJ9W4CIgfz8DBFldTOec2z7Q==
   dependencies:
     "@gatsbyjs/reach-router" "2.0.1"
     "@mdx-js/mdx" "^2.3.0"
     "@mdx-js/react" "^2.3.0"
-    "@react95/core" "^6.0.6"
-    "@react95/icons" "^2.0.6"
     "@xstyled/styled-components" "^3.8.0"
     babel-plugin-styled-components "^2.1.1"
     cross-env "^7.0.3"
@@ -2461,7 +2446,7 @@
     prismjs "^1.29.0"
     react-helmet "^6.1.0"
 
-"@react95/icons@^2.0.4", "@react95/icons@^2.0.6", "@react95/icons@^2.0.8", "@react95/icons@^2.1.0":
+"@react95/icons@^2.0.4", "@react95/icons@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@react95/icons/-/icons-2.1.0.tgz#24ae80c31a3394001506d4cc1a18f0cf9a57841e"
   integrity sha512-rYkKN8JxuG5Q7J7OUrNVMplle3V5nEM8q4YcNyZdDnlqqn28Iuf+l49RkvTrkNbPwgpNka+uiOJmSmfOWoQaxg==
